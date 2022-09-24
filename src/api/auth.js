@@ -31,6 +31,7 @@ export function login(email, password) {
     
     return auth.signInWithEmailAndPassword(email, password)
 }
+
 export function getLogout(ctx){
     logout()
         .then(res => {

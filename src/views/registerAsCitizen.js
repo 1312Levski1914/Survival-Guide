@@ -2,6 +2,31 @@
 import {
     html
 } from "../lib.js";
+
+
+export function registerMenuView(ctx) {
+    ctx.render(registerMenuTemplate());
+    const guideList = document.querySelector('.section')
+    guideList.innerHTML = htmll
+    let h3Tag = guideList.querySelectorAll('h3')
+    .forEach(x => x.addEventListener('click',showMore))
+
+}
+
+function showMore(x){
+    let h3Tag = x.currentTarget;
+    let section = h3Tag.parentElement;
+    let p = section.querySelector('p');
+    if(p.style.display ==  'block'){
+        p.style.display = 'none';
+    }else{
+        p.style.display = 'block';
+    }
+    
+}
+
+
+
 let htmll = '';
 export const setupTemplate = (data) => {
     htmll = '';
@@ -19,11 +44,7 @@ export const setupTemplate = (data) => {
    
     
 }
-export function registerMenuView(ctx) {
-    ctx.render(registerMenuTemplate());
-    const guideList = document.querySelector('.section')
-    guideList.innerHTML = htmll
-}
+
 const registerMenuTemplate = () => html `
     <div id="arrow-back"></div>
     <h1>Register as a citizen</h1>
