@@ -10,6 +10,7 @@ auth.onAuthStateChanged(user => {
         db.collection('registerAsCitizen').onSnapshot(snapshot => {
             setupTemplate(snapshot.docs)
             setupUI(user);
+           
     },err => {
         notify(err.message)
     });
@@ -30,12 +31,6 @@ export function login(email, password) {
     
     return auth.signInWithEmailAndPassword(email, password)
 }
-
-
-export function postLogin(ctx){
-    
-}
-
 export function getLogout(ctx){
     logout()
         .then(res => {
