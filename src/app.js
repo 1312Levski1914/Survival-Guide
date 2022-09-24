@@ -1,88 +1,63 @@
-import page from '../../node_modules/page/page.mjs';
-import {
-    render as litRender
-} from '../node_modules/lit-html/lit-html.js';
-import {
-    showAbout
-} from "./views/about.js";
-import {
-    showHome
-} from "./views/home.js";
-import {
-    showCatalog
-} from "./views/catalog.js";
-import {
-    showLogin
-} from "./views/login.js";
-/*
-import { showDetails } from './view/details.js';
-import { showCreate} from "./views/create.js";
-import { showRegister } from "./views/register.js";
-import {checkUserNav,onLogout } from "./utl.js";
+
+import { page, render} from './lib.js';
+import { getUserData } from "./until.js";
+import { EuOrNonEuStudentView } from "./views/EuOrNonEu.js";
+import { euOrNonEuWorkerView } from "./views/euOrNonEuWorker.js";
+import { homeView } from "./views/home.js";
+import { loginView } from "./views/login.js";
+import { overallView } from "./views/overallProgress.js";
+import { profileView } from "./views/profile.js";
+import { registerView } from "./views/register.js";
+import { registerMenuView } from './views/registerAsCitizen.js';
+import { reminderView } from "./views/reminder.js";
+import { choiceStudentOrWorkerView } from "./views/studentOrWorker.js";
 
 
-page('/catalog/:productId', showDetails);
-*/
 const main = document.querySelector('main');
+document.getElementById('notifications').style.display = 'none';
+
+
+//document.getElementById('logoutBtn').addEventListener('click' ,onLogout);
+
 page(decorateContext);
-page('./index.html', '/');
-page('/', showHome);
-page('/catalog', showCatalog);
-page('/about', showAbout);
-page('/login', showLogin);
-page('*', notFound);
+page('/',homeView);
+page('/login',loginView);
+page('/register', registerView);
+page('/reminder',reminderView)
+page('/studentOrWorker',choiceStudentOrWorkerView);
+page('/euOrNonEuStudent',EuOrNonEuStudentView);
+page('/euOrNonEuWorkerView', euOrNonEuWorkerView)
+page('/profileView', profileView);
+page('/overallView',overallView);
+page('/registerAsCitizen',registerMenuView)
 
+
+//updateNav();
 page.start();
+page('/')
 
-function render(templateResult) {
-    litRender(templateResult, main);
-}
 
-function decorateContext(ctx, next) {
-    ctx.render = render;
+function decorateContext(ctx,next){
+    ctx.render = renderMain;
+    //ctx.updateNav = updateNav;
     next();
 }
 
-function notFound(ctx) {
-    ctx.render('404 Not Found');
+function renderMain(templateResult){
+    render(templateResult, main);
 }
-/*
-document.querySelector('nav').addEventListener('click', onNavigate);
-console.log(page);
-const sections = {
-    'homeBtn': showHome,
-    'catalogBtn': showCatalog,
-    'aboutBtn': showAbout,
-    'loginBtn': showLogin,
-    'registerBtn': showRegister,
-    "createBtn": showCreate,
-    'logoutBtn': onLogout,
-}
-checkUserNav();
-goTo('homeBtn');
+/* 
+function updateNav(){
+    const userData = getUserData();
 
-function onNavigate(event) {
-    if (event.target.tagName == 'A') {
-        const viewName = event.target.id;
-
-        if (goTo(viewName)) {
-            event.preventDefault();
-        }
-    }
-}
-
-function goTo(viewName) {
-    const view = sections[viewName];
-
-    if (typeof view == 'function') {
-        view({
-            render,
-            goTo,
-            checkUserNav,
-        })
-        return true;
-    } else {
-        return false;
+    if(userData){
+        document.querySelector('.user').style.display = 'block';
+        document.querySelector('.guest').style.display = 'none';
+        document.querySelector('.user div span').textContent = `Welcome, ${userData.email}`;
+    }else{
+        console.log('no user');
+        document.querySelector('.user').style.display = 'none';
+        document.querySelector('.guest').style.display = 'block';
     }
 }
 */

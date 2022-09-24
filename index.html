@@ -5,64 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survival Guide DK</title>
-    <script src="./src/app.js" type="module"></script>
-    <link rel="stylesheet" href="style.css">
-    <script src="//api.backendless.com/sdk/js/latest/backendless.min.js"></script>
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-firestore.js"></script>
+
+    <link rel="stylesheet" href="/style/style.css">
 </head>
 
 <body>
+    <section id="notifications">
+        <div id="errorBox" class="notification">
+            <span>MESSAGE</span>
+        </div>
+    </section>
     <nav>
-        <a href="/">Home</a>
-        <a href="/Catalog">Catalog</a>
-        <a href="/About">About</a>
-        <div id="guestNav">
-            <a href="/Login" id="loginBtn">Login</a>
-            <a href="/Register" id="registerBtn">Register</a>
-        </div>
-        <div id="userNav">
-            <a href="/create" id="createBtn">Create</a>
-            <a href="javascript:void(0)" id="logoutBtn">Logout</a>
-            <span id="greeting"></span>
-        </div>
+      
     </nav>
-
     <main></main>
-
-    <div id="views">
-        
-
-        <section id="catalogView">
-            <h2>Catalog</h2>
-            <ul></ul>
-        </section>
-        <section id="loginView">
-            <h2>Login</h2>
-            <form>
-                <label>E-mail <input type="text" name="email"></label>
-                <label>Password <input type="password" name="password"></label>
-                <input type="submit" value="Sign In">
-            </form>
-        </section>
-
-        <section id="registerView">
-            <h2>Register</h2>
-            <form>
-                <label>E-mail <input type="text" name="email"></label>
-                <label>Password <input type="password" name="password"></label>
-                <label>Re-Password <input type="password"name= "repass"></label>
-                <input type="submit" value="Sign Up">
-            </form>
-        </section>
-
-        <section id="createView">
-            <h2>Create Movie</h2>
-            <form>
-                <label>Title <input type="text"name= "title"></label>
-                <input type="submit" value="Create">
-            </form>
-        </section>
-    </div>
+    <script src="./src/api/firebase.js"></script>
+    <script src="/src/app.js" type="module"></script>
+    
 </body>
+
 
 </html>

@@ -1,0 +1,56 @@
+
+#overalProgress img{
+    width: 30%;
+}
+#overalProgress{
+    display: flex;
+}
+#notifications {
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    margin: 1em;
+}
+.notification {
+    font-size: 1.5em;
+    color: #0000;
+    
+    text-align: right;
+}
+.notification>span {
+    display: inline-block;
+    padding:  0.5em 2em 0.5em 2em;
+    border-radius: 10px;
+    color: black;
+}
+#loadingBox>span {
+    background: #7CB3E9;
+}
+#infoBox>span {
+    background: #393;
+}
+#errorBox>span {
+    background: #F50;
+}
+#register{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    background-color: silver;
+    padding: 30px;
+    margin: auto;
+    
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    margin: 120px;
+    gap: 30px;
+    width: 200px;
+    justify-content: center;
+    margin: auto;
+}

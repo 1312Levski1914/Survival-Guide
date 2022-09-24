@@ -1,37 +1,64 @@
+import { login } from "../api/auth.js";
 import {
-    post
-} from "../data/api.js";
+    html
+} from "../lib.js";
+import { notify } from "../notify.js";
+import { setUserData } from "../until.js";
 
-import {
-    createSubmitHandler
-} from "../utl.js";
 
-const section = document.getElementById('loginView');
-const form = section.querySelector('form');
-createSubmitHandler(form,onSubmit);
-section.remove();
 
-let ctx = null;
-export function showLogin(inctx) {
-    ctx = inctx;
-    ctx.render(section)
-}
 
-async function onSubmit({email,password}) {
-    const data = await post('/api/users/login', {
-        'login': email,
-        password,
-    });
+const loginTemplate = (onSubmit) => html `
+<section id="login">
+    <form @submit = ${onSubmit} id="login-form">
+        <div class="container">
+            <h1>Sign in</h1>
+            <p>New user? <span>Create an account</span></p>
+            <input id="email" placeholder="Enter Email" name="email" type="text">
+            <input id="password" type="password" placeholder="Enter Password" name="password">
+            <input type="checkbox">
+            <label>Keep me signed in</label>
+            <input type="submit" class="registerbtn button" value="Sign In">
+            <div class="container signin">
+                <div>
+                    <div class='line'></div>
+                    <p>Or Sign In With</p>
+                    <div class='line'></div>
+                </div>
+                <div id="icons">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+`
 
-    const userData = {
-        email: data.email,
-        accessToken: data.accessToken,
-        id: data._id,
-        'objectId': data.objectId,
+export function loginView(ctx){
+    ctx.render(loginTemplate(onSubmit));
+
+    async function onSubmit(event){
+        event.preventDefault();
+        const formData= new FormData(event.target);
+
+        const email = formData.get('email').trim();
+        const password = formData.get('password').trim()
+        
+        let userData = {
+            email,
+            password,
+        }
+
+        if(email == '' || password == ''){
+            return notify('All fields are required')
+        }
+
+        
+        setUserData(userData);
+        await login(email,password)
+        
+        ctx.page.redirect('/profileView');
     }
-    console.log(userData.objectId);
-    sessionStorage.setItem('userData', JSON.stringify(userData));
-    ctx.checkUserNav();
-    
-    ctx.goTo('homeBtn')
 }
