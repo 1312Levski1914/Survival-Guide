@@ -1,0 +1,6 @@
+#views, #userNav, #guestNav{
+    display: none;
+}
+label{
+    display: block;
+}
