@@ -14,6 +14,4 @@ export function close(id) {
 export function update(id, data) {
     return firebase.firestore().collection('events').doc(id).update(data)
 }
-export function getUserInformation(){
-    return firebase.firestore().providerData();
-}
+

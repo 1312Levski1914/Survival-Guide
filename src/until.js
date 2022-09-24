@@ -9,9 +9,7 @@ export function setUserData(data){
 export function clearUserData(){
     sessionStorage.removeItem('userData');
 }   
-export function saveUserInfo(userInfo){
-    sessionStorage.setItem('user',userInfo);
-}
+
 
 export function setHeader(ctx){
     ctx.isAuth = sessionStorage.getItem('user') !== null;

@@ -8,11 +8,12 @@ import {
     notify
 } from "../notify.js";
 import {
-    getUserData
+    getUserData, setUserData
 } from "../until.js";
 import { getLogout } from "../api/auth.js";
 //import { signOut } from '../../node_modules/firebase/auth/'
 import { getAuth, onAuthStateChanged} from '../../node_modules/firebase/firebase-auth.js';
+
 
 
 
@@ -47,14 +48,33 @@ const profileTemplate = (name,email) => html `
 
     </section>
 `
+export const setupUI = (user) => {
+    if(user){
+        db.collection('users').doc(user.uid).get().then(doc =>{
+            let userData = {
+                'firstName': doc.data().firstName,
+                'lastName': doc.data().lastName,
+                email: doc.data().email,
+            };
+            setUserData(userData)
+        })
 
+        //loggedInLinks.forEach(item => item.style.display = 'block');
+        //loggedOutLinks.forEach(item => item.style.display = 'none');
+    }else{
+        //loggedInLinks.forEach(item => item.style.display = 'none');
+        //loggedOutLinks.forEach(item => item.style.display = 'block');
+    }
+}
 
 export function profileView(ctx) {
+    setupUI()
     let userData = getUserData()
-    ctx.render(profileTemplate(userData.username,userData.email));
+    console.log(userData);
+    ctx.render(profileTemplate(userData.firstName,userData.email));
     let btn = document.getElementById('edit-name');
     btn.addEventListener('click', () => {
-
+        console.log(userData.firstName);
     })
 
     let logoutBtn = document.getElementById('logout');

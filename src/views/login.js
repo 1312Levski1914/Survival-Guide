@@ -4,6 +4,7 @@ import {
 } from "../lib.js";
 import { notify } from "../notify.js";
 import { setUserData } from "../until.js";
+import { setupUI } from "./profile.js";
 
 
 
@@ -50,7 +51,6 @@ export function loginView(ctx){
             email,
             password,
         }
-
         if(email == '' || password == ''){
             return notify('All fields are required')
         }
@@ -58,7 +58,7 @@ export function loginView(ctx){
         
         setUserData(userData);
         await login(email,password)
-        
+        setupUI()
         ctx.page.redirect('/profileView');
     }
 }

@@ -1,9 +1,9 @@
-
-import { postRegister, register } from "../api/auth.js";
-import { html } from "../lib.js";
-import { notify } from "../notify.js";
-import { doc, setDoc, Timestamp} from "../../node_modules/firebase/firebase-firestore.js";
-import { getUserData, setUserData } from "../until.js";
+import {
+    html
+} from "../lib.js";
+import {
+    notify
+} from "../notify.js";
 
 //import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 /*
@@ -47,26 +47,30 @@ const registerTemplate = (onSubmit) => html `
     </section>
 </section>
 `
-export function registerView(ctx){
+export function registerView(ctx) {
     ctx.render(registerTemplate(onSubmit));
     const signupForm = document.querySelector('#Sign-up-Form')
 
-    async function onSubmit(event){
+    async function onSubmit(event) {
         event.preventDefault();
 
         //get user info
         const email = signupForm['email'].value;
         const password = signupForm['password'].value
+        const firstName = signupForm['firstName'].value;
+        const lastName = signupForm['lastName'].value;
 
         //sign up to the user
-        auth.createUserWithEmailAndPassword(email, password)
-            .then(cred => {
-                console.log(cred)
+        auth.createUserWithEmailAndPassword(email, password).then(cred => {
+            return db.collection('users').doc(cred.user.uid).set({
+                'firstName': firstName,
+                'lastName': lastName,
+                email,
             })
-            .catch((err) => {
-                notify(err.message)
-            })
-            ctx.page.redirect('/reminder');
+        }).catch((err) => {
+            notify(err.message)
+        })
+        ctx.page.redirect('/reminder');
 
     }
 }
