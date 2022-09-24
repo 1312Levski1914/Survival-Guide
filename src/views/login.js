@@ -55,7 +55,7 @@ export function loginView(ctx){
             return notify('All fields are required')
         }
 
-        
+        setupUI()
         setUserData(userData);
         await login(email,password)
         setupUI()

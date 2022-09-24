@@ -8,7 +8,9 @@ export function registerMenuView(ctx) {
     ctx.render(registerMenuTemplate());
     const guideList = document.querySelector('.section')
     guideList.innerHTML = htmll
-    let h3Tag = guideList.querySelectorAll('h3')
+    let pTags = guideList.querySelectorAll('p');
+    pTags.forEach(x => x.style.display = 'none')
+    let h3Tag = guideList.querySelectorAll('button')
     .forEach(x => x.addEventListener('click',showMore))
 
 }
@@ -37,6 +39,7 @@ export const setupTemplate = (data) => {
         <li>
             <h3>${guide.title}</h3>
             <p>${guide.description}</p>
+            <button>More</button>
         </li>
         `;
         htmll += li;

@@ -70,7 +70,6 @@ export const setupUI = (user) => {
 export function profileView(ctx) {
     setupUI()
     let userData = getUserData()
-    console.log(userData);
     ctx.render(profileTemplate(userData.firstName,userData.email));
     let btn = document.getElementById('edit-name');
     btn.addEventListener('click', () => {
