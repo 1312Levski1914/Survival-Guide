@@ -3,7 +3,7 @@ export function create(data) {
     return firebase.firestore().collection('events').add(data)
 }
 export async function getAll() {
-    return firebase.firestore().collection('registerAsCitizen').get()
+    return db.collection('registerAsCitizen').get()
 }
 export function get(id) {
     return firebase.firestore().collection('events').doc(id).get()

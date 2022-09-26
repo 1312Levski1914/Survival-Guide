@@ -4,21 +4,25 @@ import { setupTemplate } from "../views/registerAsCitizen.js";
 import { setupUI } from "../views/profile.js";
 import { notify } from "../notify.js";
 
+export function authAUser(){
 
-auth.onAuthStateChanged(user => { 
-    if(user){
-        db.collection('registerAsCitizen').onSnapshot(snapshot => {
-            setupTemplate(snapshot.docs)
-            setupUI(user);
-           
-    },err => {
-        notify(err.message)
-    });
-    }else{
-        setupTemplate([])
-        setupUI()
-    }
-})
+    auth.onAuthStateChanged(user => { 
+        if(user){
+            db.collection('registerAsCitizen').onSnapshot(snapshot => {
+                setupTemplate(snapshot.docs)
+                setupUI(user);
+                console.log(user);
+                
+            },err => {
+                notify(err.message)
+            });
+        }else{
+            setupTemplate([])
+            setupUI()
+        }
+    })
+}
+authAUser()
 export function logout() {
     return auth.signOut();
 }

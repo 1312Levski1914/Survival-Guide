@@ -1,4 +1,4 @@
-import { login } from "../api/auth.js";
+import { authAUser, login } from "../api/auth.js";
 import {
     html
 } from "../lib.js";
@@ -55,7 +55,7 @@ export function loginView(ctx){
             return notify('All fields are required')
         }
 
-        setupUI()
+        authAUser()
         setUserData(userData);
         await login(email,password)
         setupUI()

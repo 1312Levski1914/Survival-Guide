@@ -23,7 +23,7 @@ const profileTemplate = (name,email) => html `
     <hr>
     <div>
         <h3>Name</h3>
-        <p>${name}</p>
+        <p id= "firstName">${name}</p>
         <button id="edit-name">Edit</button>
     </div>
     <hr>
@@ -56,7 +56,9 @@ export const setupUI = (user) => {
                 'lastName': doc.data().lastName,
                 email: doc.data().email,
             };
+            
             setUserData(userData)
+            
         })
 
         //loggedInLinks.forEach(item => item.style.display = 'block');
@@ -70,7 +72,10 @@ export const setupUI = (user) => {
 export function profileView(ctx) {
     setupUI()
     let userData = getUserData()
+    console.log(userData);
     ctx.render(profileTemplate(userData.firstName,userData.email));
+    document.getElementById('firstName').textContent = userData.firstName
+    console.log(userData.firstName);
     let btn = document.getElementById('edit-name');
     btn.addEventListener('click', () => {
         console.log(userData.firstName);
