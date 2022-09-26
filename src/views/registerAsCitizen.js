@@ -16,13 +16,16 @@ export function registerMenuView(ctx) {
 }
 
 function showMore(x){
-    let h3Tag = x.currentTarget;
-    let section = h3Tag.parentElement;
+    let btn = x.currentTarget;
+    let section = btn.parentElement;
     let p = section.querySelector('p');
     if(p.style.display ==  'block'){
         p.style.display = 'none';
+        btn.textContent = 'More';
     }else{
         p.style.display = 'block';
+        btn.textContent = 'Less';
+
     }
     
 }

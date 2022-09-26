@@ -11,11 +11,11 @@ export function authAUser(){
             db.collection('registerAsCitizen').onSnapshot(snapshot => {
                 setupTemplate(snapshot.docs)
                 setupUI(user);
-                console.log(user);
-                
             },err => {
                 notify(err.message)
             });
+            setupUI(user)
+            
         }else{
             setupTemplate([])
             setupUI()

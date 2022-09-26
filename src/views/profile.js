@@ -58,6 +58,8 @@ export const setupUI = (user) => {
             };
             
             setUserData(userData)
+            console.log(userData);
+            document.getElementById('firstName').textContent = userData.firstName
             
         })
 
@@ -70,11 +72,10 @@ export const setupUI = (user) => {
 }
 
 export function profileView(ctx) {
-    setupUI()
     let userData = getUserData()
-    console.log(userData);
+
     ctx.render(profileTemplate(userData.firstName,userData.email));
-    document.getElementById('firstName').textContent = userData.firstName
+    
     console.log(userData.firstName);
     let btn = document.getElementById('edit-name');
     btn.addEventListener('click', () => {
