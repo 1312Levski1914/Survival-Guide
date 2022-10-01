@@ -13,38 +13,47 @@ import {
 import { getLogout } from "../api/auth.js";
 //import { signOut } from '../../node_modules/firebase/auth/'
 import { getAuth, onAuthStateChanged} from '../../node_modules/firebase/firebase-auth.js';
+import { closeBtn } from "../app.js";
 
 
 
 
 const profileTemplate = (name,email) => html `
-    <div><img></div>
-    <div><i></i><h3>FRANCE</h3></div>
+    <section id="profile">
+        <div class = "closeBtn"></div>
+        <div class="arrows left"></div>
+        <div class= "arrows right"></div>  
+        <div id='profile-picture' ></div>
+        <div><i></i><h3>FRANCE</h3></div>
     <hr>
-    <div>
-        <h3>Name</h3>
-        <p id= "firstName">${name}</p>
-        <button id="edit-name">Edit</button>
-    </div>
+        <div class="firstSection">
+            <h3>Name</h3>
+            <p id= "firstName">${name}</p>
+            <button class="button btnProfile" id="edit-name">Edit</button>
+        </div>
     <hr>
-    <div>
-        <h3>Email address</h3>
-        <p>${email}</p>
-        <button>Edit</button>
-    </div>
+        <div class="firstSection">
+            <h3>Email address</h3>
+            <p>${email}</p>
+            <button class="button btnProfile">Edit</button>
+        </div>
     <hr>
-    <h3>What will you be using SG for?</h3>
-    <input type="checkbox">
+        <div class="firstSection">
+            <h3>What will you be using SG for?</h3>
+            <input type="select">
+        </div>
     <hr>
-    <h3>Connect social accounts</h3>
-    <div>
+        <h3>Connect social accounts</h3>
+        <section id="social">
         <i></i>
         <i></i>
         <i></i>
-    </div>
-    <button id="logout">Logout</button>
-    <a href="/overallView" class ="button">Overall</a>
-    <section id="collection">
+    </section>
+        <button id="logout">Logout</button>
+        <a href="/overallView" class ="button">Overall</a>
+        <section id="collection">
+
+        </section>
 
     </section>
 `
@@ -73,15 +82,13 @@ export const setupUI = (user) => {
 
 export function profileView(ctx) {
     let userData = getUserData()
-
     ctx.render(profileTemplate(userData.firstName,userData.email));
     
-    console.log(userData.firstName);
     let btn = document.getElementById('edit-name');
     btn.addEventListener('click', () => {
         console.log(userData.firstName);
     })
-
+    closeBtn('profile')
     let logoutBtn = document.getElementById('logout');
     logoutBtn.addEventListener('click',getLogout)
 

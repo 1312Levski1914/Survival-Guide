@@ -22,10 +22,22 @@ const homeTemplate = () => html `
 `
 
 export function homeView(ctx){
-    if(getUserData()){
-        
-        ctx.page.redirect('/profileView');
-    }
+    //if(getUserData()){
+        //ctx.page.redirect('/mainView');
+    //}
    
     ctx.render(homeTemplate());
+    let dots = document.querySelectorAll('#dots div')
+
+    let par = document.querySelector('#welcome p').textContent.slice(0,5)
+    for(let i = 0 ; i< dots.length; i++){
+        if(par == 'Your '){
+            if(i == 1){
+                dots[i].style.backgroundColor ='#6EC3EF';
+            }
+        }else{
+            console.log('error');
+        }
+    }
 }
+

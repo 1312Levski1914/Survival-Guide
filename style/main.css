@@ -1,0 +1,149 @@
+
+#main{
+    height: 100vh;
+    width: 100%;
+   
+}
+#listOfTask{
+    position: relative;
+    width: 100%;
+    height: 80%;
+}
+.listOfTaskImg{
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/Background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.smallImg{
+    width: 60%;
+    height: 50%;
+    background-image: url(../images/Photo.png);
+    background-size: cover;
+    position: absolute;
+    left:-10%;
+    top: 18%;
+    
+}
+.listOfTask section{
+    position: relative;
+}
+.wheel{
+    width: 60%;
+    height: auto;
+    position: absolute;
+    right: 10%;
+    top: 12%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+.wheel a{
+    color: var(--background);
+    text-decoration: none;
+    margin:auto
+}
+.balloonProcent{
+    width: 45px;
+    height: 45px;
+    background-color: var(--background);
+    border-radius: 50%;
+
+}
+.balloonProcent p{
+    position: relative;
+    top: 0.7em;
+    width: 70%;
+    margin: auto;
+}
+.infoRow{
+    display: flex;
+    flex-direction: row;
+}
+.option0{
+    margin-left: -20%;
+}
+.option1{
+    margin-left: 5%;
+}
+.option2{
+    margin-left: 24%;
+}
+.option3{
+    margin-left: 31%;
+}
+.option4{
+    margin-left: 20%;
+}
+.option5{
+    margin-left: -3%;
+}
+.option6{
+    margin-left: -40%;
+}
+.chat{
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/LiveChat.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 5%;
+    bottom: 15%;
+}
+#site-map{
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+.bottomNav{
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/bar.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    bottom: 50px;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.newsPeaper{
+    width:50px;
+    height: 50px;
+    background-image: url(../images/newsICON.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    top: 2em;
+    z-index: 2;
+}
+.notifications{
+    width:50px;
+    height:50px;
+    background-image: url(../images/notificationsICON.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 2;
+    position: relative;
+    top: 2em;
+}
+.home{
+    width:66px;
+    height:66px;
+    background-image: url(../images/home.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    bottom: 30px;
+    left: 7%;
+    z-index: 2;
+}
+.homeBackground h1{
+    font-weight: 200;
+}

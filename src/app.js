@@ -5,6 +5,8 @@ import { EuOrNonEuStudentView } from "./views/EuOrNonEu.js";
 import { euOrNonEuWorkerView } from "./views/euOrNonEuWorker.js";
 import { homeView } from "./views/home.js";
 import { loginView } from "./views/login.js";
+import { mainView } from './views/main.js';
+import { newsView } from './views/news.js';
 import { overallView } from "./views/overallProgress.js";
 import { profileView } from "./views/profile.js";
 import { registerView } from "./views/register.js";
@@ -30,6 +32,8 @@ page('/euOrNonEuWorkerView', euOrNonEuWorkerView)
 page('/profileView', profileView);
 page('/overallView',overallView);
 page('/registerAsCitizen',registerMenuView)
+page('/mainView',mainView);
+page('/newsView', newsView)
 
 
 //updateNav();
@@ -45,6 +49,19 @@ function decorateContext(ctx,next){
 
 function renderMain(templateResult){
     render(templateResult, main);
+}
+export function closeBtn(section){
+    section = document.getElementById(section)
+    let closeBtn = section.querySelector('.closeBtn');
+    console.log(closeBtn);
+    let lines = section.querySelectorAll('.arrows')
+
+    lines.forEach(x => x.addEventListener('click', () => {
+        history.back()
+    }))
+    closeBtn.addEventListener('click', () =>{
+        history.back();
+    })
 }
 /* 
 function updateNav(){

@@ -1,0 +1,46 @@
+#profile{
+    width: 90%;
+    margin: auto;
+    height: 100%;
+}
+#profile div h3{
+    margin: 0;
+}
+
+.firstSection{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    height: 15%;
+    
+}
+.firstSection h3{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 1%;
+}
+.firstSection p{
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    color: var(--secBtnCollor);
+}
+.firstSection input{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    width: 80%;
+    height: 20%;
+}
+.btnProfile{
+    width: 25%;
+    border-style: none;
+    height: 35px;
+    position: absolute;
+    right: 0;
+    bottom: 5%;
+    font-size: 20px;
+    font-weight:600;
+}

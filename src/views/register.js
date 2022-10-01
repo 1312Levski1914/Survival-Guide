@@ -1,9 +1,11 @@
+import { closeBtn } from "../app.js";
 import {
     html
 } from "../lib.js";
 import {
     notify
 } from "../notify.js";
+import { setUserData } from "../until.js";
 
 //import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 /*
@@ -19,10 +21,9 @@ createUserWithEmailAndPassword(auth,email,password)
  */
 const registerTemplate = (onSubmit) => html `
 <section id="register">
-    <div class = "closeBtn">
-        <div></div>
-        <div></div>
-    </div>
+    <div class = "closeBtn"></div>
+    <div class="arrows left"></div>
+    <div class= "arrows right"></div>
     <h1>Sign Up</h1>
     <p>Already an user? <span class = "signIn">Sign In</span></p>
     <form @submit = ${onSubmit} id = "Sign-up-Form" action="#/register" method="post">
@@ -32,15 +33,15 @@ const registerTemplate = (onSubmit) => html `
             <input id="email" type="email" placeholder="E-Mail" name="email">
             <input id= "password" type="password" placeholder="Password" name="password">
             <input id= "rePass" type="password" placeholder="Repeat Password" name="rePass">
-            <input type="submit" class="registerbtn button" value="Sign In">
+            <input type="submit" class="button registerbtn" value="Sign Up">
         </div>
     </form>
-    <div>
+    <div id="orSignInText">
         <div></div>
         <p>Or Sign In With</p>
         <div></div>
     </div>
-    <section>
+    <section id="social">
         <i></i>
         <i></i>
         <i></i>
@@ -50,7 +51,7 @@ const registerTemplate = (onSubmit) => html `
 export function registerView(ctx) {
     ctx.render(registerTemplate(onSubmit));
     const signupForm = document.querySelector('#Sign-up-Form')
-
+    closeBtn('register')
     async function onSubmit(event) {
         event.preventDefault();
 
@@ -70,10 +71,22 @@ export function registerView(ctx) {
         }).catch((err) => {
             notify(err.message)
         })
+        let userData = {
+            'firstName': firstName,
+            'lastName': lastName,
+            email,
+            password
+        }
+        setUserData(userData)
+        
         ctx.page.redirect('/reminder');
 
     }
+    
+    
 }
+
+
 /* 
 export function registerView(ctx){
     console.log('hi i am here');

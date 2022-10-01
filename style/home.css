@@ -1,0 +1,94 @@
+#welcome img{
+    width: 180px;
+    margin: auto;
+    margin:  auto ;
+}
+main{
+    height: 100vh;
+    width: 100%;
+}
+#welcome{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    gap: 2.2em;
+}
+#welcome h1{
+    width: 80%;
+    text-transform: uppercase;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    padding-top: 15%;
+    color: var(--secBtnCollor);
+}
+#welcome p{
+    width: 70%;
+    margin: auto;
+    margin: auto ;
+    text-align: center;
+    color: var(--secBtnCollor);
+    font-size:20px;
+    
+}
+#dots{
+    width: 100%;
+    display: flex;
+    gap: 5%;
+    margin: auto;
+    justify-content: center;
+}
+#dots div{
+    width: 9px;
+    height: 8px;
+    border-radius:50%;
+    background-color: skyblue;
+    z-index: 2;
+position: relative;
+}
+#dots div div{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    border-color: skyblue;
+    background-color: white;
+    z-index: 12;
+    left: 2px;
+    top: 1.67px
+}
+.active{
+    background-color: var(--btnCollor);
+}
+#btn-div{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    margin: auto ;
+}
+.button{
+    width: 270px;
+    height: 43px;
+    margin: 0 auto;
+    padding: auto;
+    text-align: center;
+    background-color: var(--btnCollor);
+    border-radius: 25px;
+    background-image: linear-gradient(to right, var(--btnCollor) 0%, #A2CFEB 30% , #736165  60% ,#736165 75%, #2C3C3A  90%);
+    background-size: 100% auto;
+    color: white;            
+    box-shadow: 0 0 10px var(--secBtnCollor);
+    text-decoration: none;
+}
+
+#btn-div a p{
+    width: 100%;
+    margin: 3% auto;
+    color: white;
+    font-size: 15px;
+    font-weight:500;
+}

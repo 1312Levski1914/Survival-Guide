@@ -1,4 +1,5 @@
 import { authAUser, login } from "../api/auth.js";
+import { closeBtn } from "../app.js";
 import {
     html
 } from "../lib.js";
@@ -11,14 +12,19 @@ import { setupUI } from "./profile.js";
 
 const loginTemplate = (onSubmit) => html `
 <section id="login">
+        <div class = "closeBtn"></div>
+        <div class="arrows left"></div>
+        <div class= "arrows right"></div>   
     <form @submit = ${onSubmit} id="login-form">
         <div class="container">
             <h1>Sign in</h1>
             <p>New user? <span>Create an account</span></p>
             <input id="email" placeholder="Enter Email" name="email" type="text">
             <input id="password" type="password" placeholder="Enter Password" name="password">
+            <div>
             <input type="checkbox">
             <label>Keep me signed in</label>
+            </div>
             <input type="submit" class="registerbtn button" value="Sign In">
             <div class="container signin">
                 <div>
@@ -26,11 +32,11 @@ const loginTemplate = (onSubmit) => html `
                     <p>Or Sign In With</p>
                     <div class='line'></div>
                 </div>
-                <div id="icons">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                </div>
+                <section id="social">
+        <i></i>
+        <i></i>
+        <i></i>
+    </section>
             </div>
         </div>
     </form>
@@ -39,7 +45,8 @@ const loginTemplate = (onSubmit) => html `
 
 export function loginView(ctx){
     ctx.render(loginTemplate(onSubmit));
-
+    
+    closeBtn('login')
     async function onSubmit(event){
         event.preventDefault();
         const formData= new FormData(event.target);
