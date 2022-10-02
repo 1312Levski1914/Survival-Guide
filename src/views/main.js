@@ -1,6 +1,5 @@
 
-import { authAUser } from "../api/auth.js";
-import { closeBtn } from "../app.js";
+import { getUserInfo } from "../api/auth.js";
 import {
     html,
     page
@@ -12,7 +11,7 @@ import { newsView } from "./news.js";
 const mainTemplate = (userData) => html `
 <section id="main">
     <div id="navBar">
-        <img>
+        <img src="https://scontent-cph2-1.xx.fbcdn.net/v/t1.6435-9/51545850_10214302658900386_1194998865414062080_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=FitUoHOpATAAX8YPa1J&_nc_ht=scontent-cph2-1.xx&oh=00_AT9VATPIFddiOSgJMKWKufX3n7mG8mLlcvvASSiXnGklbQ&oe=635F372B">
         <p id="name">${userData.firstName} ${userData.lastName}</p>
         <section class= "nav-btn">
             <a></a>
@@ -61,12 +60,19 @@ const taskOverall= (title, progress,path) => html`
     </section>
 `
 export function mainView(ctx){
-    let userData = getUserData()
+    
+    let userData =getUserData()
+    
    
     ctx.render(mainTemplate(userData));
 
     let siteMap = document.getElementById('site-map');
     let newIcon = siteMap.querySelector('.newsPeaper')
+    let profileImg = document.getElementById('navBar');
+    profileImg=  profileImg.querySelector('img');
+    profileImg.addEventListener('click',() =>{
+        ctx.page.redirect('/profileView')
+    })
     
     newIcon.addEventListener('click',() => {
         ctx.page.redirect('/newsView');

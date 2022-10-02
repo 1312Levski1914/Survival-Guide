@@ -1,4 +1,5 @@
 
+import { getUserInfo } from "../api/auth.js";
 import { html } from "../lib.js";
 import { getUserData } from "../until.js";
 
@@ -22,9 +23,9 @@ const homeTemplate = () => html `
 `
 
 export function homeView(ctx){
-    //if(getUserData()){
+    if(getUserData()){
         //ctx.page.redirect('/mainView');
-    //}
+    }
    
     ctx.render(homeTemplate());
     let dots = document.querySelectorAll('#dots div')
@@ -39,5 +40,6 @@ export function homeView(ctx){
             console.log('error');
         }
     }
+    getUserInfo()
 }
 

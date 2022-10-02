@@ -50,17 +50,27 @@ function decorateContext(ctx,next){
 function renderMain(templateResult){
     render(templateResult, main);
 }
-export function closeBtn(section){
+export function closeBtn(ctx,section, remote){
     section = document.getElementById(section)
+    
     let closeBtn = section.querySelector('.closeBtn');
-    console.log(closeBtn);
     let lines = section.querySelectorAll('.arrows')
 
     lines.forEach(x => x.addEventListener('click', () => {
-        history.back()
+        if(remote){
+            ctx.page.redirect(remote)
+        }else{
+
+            history.back()
+        }
     }))
     closeBtn.addEventListener('click', () =>{
-        history.back();
+        if(remote){
+            ctx.page.redirect(remote)
+        }else{
+
+            history.back();
+        }
     })
 }
 /* 

@@ -1,3 +1,4 @@
+import { register } from "../api/auth.js";
 import { closeBtn } from "../app.js";
 import {
     html
@@ -31,7 +32,7 @@ const registerTemplate = (onSubmit) => html `
             <input id="firstName" type="text" placeholder="First Name" name="firstName" >
             <input id="lastName" type="text" placeholder="Last Name" name="lastName">
             <input id="email" type="email" placeholder="E-Mail" name="email">
-            <input id= "password" type="password" placeholder="Password" name="password">
+            <input id= "password"  type="password" placeholder="Password" name="password">
             <input id= "rePass" type="password" placeholder="Repeat Password" name="rePass">
             <input type="submit" class="button registerbtn" value="Sign Up">
         </div>
@@ -51,7 +52,7 @@ const registerTemplate = (onSubmit) => html `
 export function registerView(ctx) {
     ctx.render(registerTemplate(onSubmit));
     const signupForm = document.querySelector('#Sign-up-Form')
-    closeBtn('register')
+    closeBtn(ctx,'register')
     async function onSubmit(event) {
         event.preventDefault();
 
@@ -62,15 +63,7 @@ export function registerView(ctx) {
         const lastName = signupForm['lastName'].value;
 
         //sign up to the user
-        auth.createUserWithEmailAndPassword(email, password).then(cred => {
-            return db.collection('users').doc(cred.user.uid).set({
-                'firstName': firstName,
-                'lastName': lastName,
-                email,
-            })
-        }).catch((err) => {
-            notify(err.message)
-        })
+        register(email,password,firstName,lastName)
         let userData = {
             'firstName': firstName,
             'lastName': lastName,

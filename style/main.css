@@ -4,6 +4,15 @@
     width: 100%;
    
 }
+#navBar { 
+    display: flex;
+    align-items: center;
+}
+#navBar img{
+width: 50px;
+border-radius: 50%;
+margin: 10px;
+}
 #listOfTask{
     position: relative;
     width: 100%;

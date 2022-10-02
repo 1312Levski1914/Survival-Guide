@@ -1,40 +1,39 @@
-import {
-    getAllAsCitizen
-} from "../api/collections.js";
+
 import {
     html
 } from "../lib.js";
-import {
-    notify
-} from "../notify.js";
+
 import {
     getUserData, setUserData
 } from "../until.js";
-import { getLogout } from "../api/auth.js";
+import { getLogout, getUserInfo } from "../api/auth.js";
 //import { signOut } from '../../node_modules/firebase/auth/'
-import { getAuth, onAuthStateChanged} from '../../node_modules/firebase/firebase-auth.js';
+
 import { closeBtn } from "../app.js";
 
 
 
 
-const profileTemplate = (name,email) => html `
+
+const profileTemplate = () => html `
     <section id="profile">
         <div class = "closeBtn"></div>
         <div class="arrows left"></div>
-        <div class= "arrows right"></div>  
-        <div id='profile-picture' ></div>
-        <div><i></i><h3>FRANCE</h3></div>
+        <div class= "arrows right"></div>
+        <section class="pictureAndCountry">    
+            <div id='profile-picture'></div>
+            <div><div class="flag"></div><h3>FRANCE</h3></div>
+        </section>
     <hr>
         <div class="firstSection">
             <h3>Name</h3>
-            <p id= "firstName">${name}</p>
+            <p id= "firstName"></p>
             <button class="button btnProfile" id="edit-name">Edit</button>
         </div>
     <hr>
         <div class="firstSection">
             <h3>Email address</h3>
-            <p>${email}</p>
+            <p id="email"></p>
             <button class="button btnProfile">Edit</button>
         </div>
     <hr>
@@ -59,16 +58,16 @@ const profileTemplate = (name,email) => html `
 `
 export const setupUI = (user) => {
     if(user){
-        db.collection('users').doc(user.uid).get().then(doc =>{
+       
+        db.collection('users').doc(user.uid).get().then(doc => {
             let userData = {
                 'firstName': doc.data().firstName,
                 'lastName': doc.data().lastName,
                 email: doc.data().email,
             };
-            
             setUserData(userData)
-            console.log(userData);
-            document.getElementById('firstName').textContent = userData.firstName
+           
+        
             
         })
 
@@ -79,16 +78,29 @@ export const setupUI = (user) => {
         //loggedOutLinks.forEach(item => item.style.display = 'block');
     }
 }
+export function updateInfo(userData){
+    if(document.getElementById('firstName')){
+        let firstName = document.getElementById('firstName');
+        firstName.textContent = userData.firstName
+        let email = document.getElementById('email');
+        email.textContent = userData.email;
+    }
+}
+
 
 export function profileView(ctx) {
-    let userData = getUserData()
-    ctx.render(profileTemplate(userData.firstName,userData.email));
+    
+    ctx.render(profileTemplate());
+    let userData = getUserData();
+    updateInfo(userData)
     
     let btn = document.getElementById('edit-name');
     btn.addEventListener('click', () => {
         console.log(userData.firstName);
     })
-    closeBtn('profile')
+    closeBtn(ctx,'profile','/mainView')
+   
+   
     let logoutBtn = document.getElementById('logout');
     logoutBtn.addEventListener('click',getLogout)
 

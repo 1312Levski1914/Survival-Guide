@@ -33,7 +33,7 @@ function showMore(x){
 
 
 let htmll = '';
-export const setupTemplate = (data) => {
+export const setupTemplateforCitizen = (data) => {
     htmll = '';
 
     data.forEach(element => {

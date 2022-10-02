@@ -1,4 +1,4 @@
-import { authAUser, login } from "../api/auth.js";
+import { getUserInfo, login } from "../api/auth.js";
 import { closeBtn } from "../app.js";
 import {
     html
@@ -32,11 +32,11 @@ const loginTemplate = (onSubmit) => html `
                     <p>Or Sign In With</p>
                     <div class='line'></div>
                 </div>
-                <section id="social">
-        <i></i>
-        <i></i>
-        <i></i>
-    </section>
+                <div id="icons">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
             </div>
         </div>
     </form>
@@ -46,7 +46,7 @@ const loginTemplate = (onSubmit) => html `
 export function loginView(ctx){
     ctx.render(loginTemplate(onSubmit));
     
-    closeBtn('login')
+    closeBtn(ctx, 'login')
     async function onSubmit(event){
         event.preventDefault();
         const formData= new FormData(event.target);
@@ -54,18 +54,18 @@ export function loginView(ctx){
         const email = formData.get('email').trim();
         const password = formData.get('password').trim()
         
-        let userData = {
-            email,
-            password,
-        }
+      
         if(email == '' || password == ''){
             return notify('All fields are required')
         }
-
-        authAUser()
-        setUserData(userData);
+        
+        
+        
         await login(email,password)
-        setupUI()
-        ctx.page.redirect('/profileView');
+            .then(()=>{
+                getUserInfo();
+                ctx.page.redirect('/mainView');
+            })
+        
     }
 }
