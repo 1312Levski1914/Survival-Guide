@@ -81,7 +81,7 @@ export const setupUI = (user) => {
 export function updateInfo(userData){
     if(document.getElementById('firstName')){
         let firstName = document.getElementById('firstName');
-        firstName.textContent = userData.firstName
+        firstName.textContent = userData.firstName + ' ' + userData.lastName
         let email = document.getElementById('email');
         email.textContent = userData.email;
     }

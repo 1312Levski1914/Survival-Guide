@@ -6,7 +6,7 @@ import { getUserData } from "../until.js";
 const homeTemplate = () => html `
 <section id="welcome">
     <h1>Welcome to Survival Guide</h1>
-    <img src="./images/SurvivalGuide-logo.png" alt="Logo is missing">
+    <div id="logo"></div>
     <p>Your virtual journal to help you manage everyday life as an international in Denmark</p>
     <section id="dots">
         <div><div></div></div>
@@ -24,7 +24,7 @@ const homeTemplate = () => html `
 
 export function homeView(ctx){
     if(getUserData()){
-        //ctx.page.redirect('/mainView');
+        ctx.page.redirect('/mainView');
     }
    
     ctx.render(homeTemplate());

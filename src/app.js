@@ -33,7 +33,7 @@ page('/profileView', profileView);
 page('/overallView',overallView);
 page('/registerAsCitizen',registerMenuView)
 page('/mainView',mainView);
-page('/newsView', newsView)
+page('/newsView', newsView);
 
 
 //updateNav();

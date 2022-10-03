@@ -133,8 +133,8 @@ margin: 10px;
     z-index: 2;
 }
 .notifications{
-    width:50px;
-    height:50px;
+    width:55px;
+    height:55px;
     background-image: url(../images/notificationsICON.png);
     background-repeat: no-repeat;
     background-size: cover;
