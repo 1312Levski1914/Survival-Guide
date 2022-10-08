@@ -1,11 +1,9 @@
 
-import { getUserInfo } from "../api/auth.js";
 import {
     html,
-    page
 } from "../lib.js";
-import { getUserData } from "../until.js";
-import { newsView } from "./news.js";
+import { getUserData, styleAllOptions } from "../until.js";
+
 
 
 const mainTemplate = (userData) => html `
@@ -43,12 +41,11 @@ const mainTemplate = (userData) => html `
 `
 const overallTemplate = () => html `
     ${taskOverall('Register as a citizen','100%','registerAsCitizen')}
-    ${taskOverall('Bank account Tax Card','50%','registerAsCitizen')}
-    ${taskOverall('Digital Services','0%','registerAsCitizen')}
-    ${taskOverall('Housing','50%','registerAsCitizen')}
-    ${taskOverall('Jobs | Unions','50%','registerAsCitizen')}
-    ${taskOverall('Transportation','0%','registerAsCitizen')}
-    ${taskOverall('Language Courses','0%','registerAsCitizen')}
+    ${taskOverall('Bank account Tax Card','50%','bankMenuView')}
+    ${taskOverall('Digital Services','0%','digitalMenuView')}
+    ${taskOverall('Improve your car','0%','carMenuView')}
+    ${taskOverall('Housing','50%','housingMenuView')}
+    ${taskOverall('Jobs | Unions','50%','jobsMenuView')}
 
 `
 const taskOverall= (title, progress,path) => html`
@@ -60,8 +57,8 @@ const taskOverall= (title, progress,path) => html`
     </section>
 `
 export function mainView(ctx){
-    
     let userData =getUserData()
+    console.log(userData);
     
    
     ctx.render(mainTemplate(userData));
@@ -77,7 +74,7 @@ export function mainView(ctx){
     newIcon.addEventListener('click',() => {
         ctx.page.redirect('/newsView');
     })
-    styleAllOptions('infoRow')
+    styleAllOptions('infoRow','Main')
 
    
 
@@ -85,10 +82,3 @@ export function mainView(ctx){
     
 }
 
-function styleAllOptions(classSection){
-    let section = document.getElementsByClassName(classSection)
-    
-    for(let i = 0 ; i < section.length ; i++){
-        section[i].classList.add(`option${i}`)
-    }
-}

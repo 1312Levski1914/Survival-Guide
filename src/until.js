@@ -15,3 +15,10 @@ export function setHeader(ctx){
     ctx.isAuth = sessionStorage.getItem('user') !== null;
     ctx.user = sessionStorage.getItem('user');
 }
+export function styleAllOptions(classSection,main){
+    let section = document.getElementsByClassName(classSection)
+    
+    for(let i = 0 ; i < section.length ; i++){
+        section[i].classList.add(`option${main}${i}`)
+    }
+}

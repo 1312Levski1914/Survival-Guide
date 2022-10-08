@@ -1,4 +1,6 @@
-import page from '../../node_modules/page/page.mjs'
+import {
+    page
+} from '../lib.js'
 import {
     setupTemplateforCitizen
 } from "../views/registerAsCitizen.js";
@@ -6,9 +8,25 @@ import {
 import {
     notify
 } from "../notify.js";
-import { setUserData } from '../until.js';
-import { setupUI, updateInfo } from '../views/profile.js';
-import { setupTemplateforNews } from '../views/news.js';
+import {
+    setUserData
+} from '../until.js';
+import {
+    setupUI,
+    updateInfo
+} from '../views/profile.js';
+import {
+    setupTemplateforNews
+} from '../views/news.js';
+import {
+    setupTemplateforBankAccount
+} from '../views/bankAccount.js';
+import {
+    setupTemplateforDigitalService
+} from '../views/digitalServices.js';
+import { setupTemplateforCarAndLicence } from '../views/carAndDrivingLicense.js';
+import { setupTemplateforHousing } from '../views/housing.js';
+import { setupTemplateforJobs } from '../views/jobsView.js';
 
 
 
@@ -20,17 +38,49 @@ auth.onAuthStateChanged(user => {
         }, err => {
             notify(err.message)
         });
-        db.collection('news').onSnapshot(snapshot =>{
+
+        db.collection("bankAccount").onSnapshot(snapshot => {
+            setupTemplateforBankAccount(snapshot.docs);
+        }, err => {
+            notify(err.message);
+        });
+
+        db.collection("degitalService").onSnapshot(snapshot => {
+            setupTemplateforDigitalService(snapshot.docs);
+        }, err => {
+            notify(err.message);
+        });
+        
+        db.collection("carAndDrivingLicense").onSnapshot(snapshot => {
+            setupTemplateforCarAndLicence(snapshot.docs);
+        }, err => {
+            notify(err.message);
+        })
+        
+        db.collection("Housing").onSnapshot(snapshot => {
+            setupTemplateforHousing(snapshot.docs);
+        }, err => {
+            notify(err.message);
+        })
+    
+        db.collection("JobUnion").onSnapshot(snapshot => {
+            setupTemplateforJobs(snapshot.docs);
+        }, err => {
+            notify(err.message);
+        })
+        
+        db.collection('news').onSnapshot(snapshot => {
             setupTemplateforNews(snapshot.doc)
 
-        },err => {
+        }, err => {
             notify(err.message)
-        })
-        getUserInfo()
+        });
+
+
         setupUI(user)
 
     } else {
-        
+        setupUI(user)
         //setupUI()
     }
 })
@@ -38,7 +88,7 @@ export function logout() {
     return auth.signOut();
 }
 
-export function register(email, password,firstName,lastName, ) {
+export function register(email, password, firstName, lastName, ) {
     return auth.createUserWithEmailAndPassword(email, password).then(cred => {
         return db.collection('users').doc(cred.user.uid).set({
             'firstName': firstName,
@@ -61,7 +111,7 @@ export function register(email, password,firstName,lastName, ) {
 export function login(email, password) {
 
     return auth.signInWithEmailAndPassword(email, password).then(cred => {
-        db.collection('users').doc(cred.user.uid).get().then(doc =>{
+        db.collection('users').doc(cred.user.uid).get().then(doc => {
             let userData = {
                 'firstName': doc.data().firstName,
                 'lastName': doc.data().lastName,
@@ -69,7 +119,8 @@ export function login(email, password) {
             }
             setUserData(userData);
             updateInfo(userData)
-            
+            console.log(userData);
+
         })
     })
 }
@@ -81,25 +132,11 @@ export function getLogout() {
             page.redirect('/')
         }).catch(e => console.log(e))
 }
-export function getUserInfo(){
+export function getUserInfo() {
     let auths = firebase.auth();
-    
-    return auths.onAuthStateChanged(auth, (user) => {
-        if(user){
-            console.log('here');
-            const uid = user.uid;
-            let userData = {
-                'firstName': user.firstName,
-                'lastName': user.lastName,
-                'email': user.email,
-            }
-            setUserData(userData)
-            console.log(uid);
-        }else{
-            console.log('here');
-        }
-    })
-    
+
+    return
+
 }
 
 /*

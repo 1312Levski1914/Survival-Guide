@@ -40,14 +40,14 @@
    font-weight: 350;
    z-index: 10;
 }
-#listOfNews section div{
+.newsListImg{
    display: flex;
    align-items: center;
    justify-content: center;
    position: relative;
 
 }
-#listOfNews section div div{
+.newsListImg div{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -78,4 +78,15 @@
     position: absolute;
     left: 43%;
     top: 55px;
+}
+.dots1{
+    flex-direction: row;
+    gap: 5px;
+    flex-wrap: nowrap;
+}
+.dots1 div{
+    
+}
+.active{
+    background-color: green;
 }

@@ -72,25 +72,25 @@ margin: 10px;
     display: flex;
     flex-direction: row;
 }
-.option0{
+.optionMain0{
     margin-left: -20%;
 }
-.option1{
+.optionMain1{
     margin-left: 5%;
 }
-.option2{
+.optionMain2{
     margin-left: 24%;
 }
-.option3{
+.optionMain3{
     margin-left: 31%;
 }
-.option4{
+.optionMain4{
     margin-left: 20%;
 }
-.option5{
+.optionMain5{
     margin-left: -3%;
 }
-.option6{
+.optionMain6{
     margin-left: -40%;
 }
 .chat{

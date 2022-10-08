@@ -1,0 +1,18 @@
+#bankAccount section{
+    display: flex;
+    flex-direction: column;
+    
+}
+#bankAccount section h3{
+    margin: 0;
+    padding: 0;
+}
+.optionbank0{
+    order: 3;
+}
+.optionbank1{
+    order: 1;
+}
+.optionbank2{
+    order: 2;
+}

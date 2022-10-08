@@ -5,7 +5,8 @@ import {
 } from "../lib.js";
 import { notify } from "../notify.js";
 import { setUserData } from "../until.js";
-import { setupUI } from "./profile.js";
+
+
 
 
 
@@ -63,9 +64,7 @@ export function loginView(ctx){
         
         await login(email,password)
             .then(()=>{
-                getUserInfo();
-                ctx.page.redirect('/mainView');
-            })
+            ctx.page.redirect('/mainView');
         
-    }
+    })}
 }

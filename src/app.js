@@ -1,13 +1,19 @@
 
 import { page, render} from './lib.js';
 import { getUserData } from "./until.js";
+import { bankMenuView } from './views/bankAccount.js';
+import { carMenuView } from './views/carAndDrivingLicense.js';
+import { digitalMenuView } from './views/digitalServices.js';
 import { EuOrNonEuStudentView } from "./views/EuOrNonEu.js";
 import { euOrNonEuWorkerView } from "./views/euOrNonEuWorker.js";
 import { homeView } from "./views/home.js";
+import { housingMenuView } from './views/housing.js';
+import { jobsMenuView } from './views/jobsView.js';
+import { liveChatView } from './views/livechat.js';
 import { loginView } from "./views/login.js";
 import { mainView } from './views/main.js';
 import { newsView } from './views/news.js';
-import { overallView } from "./views/overallProgress.js";
+
 import { profileView } from "./views/profile.js";
 import { registerView } from "./views/register.js";
 import { registerMenuView } from './views/registerAsCitizen.js';
@@ -30,10 +36,15 @@ page('/studentOrWorker',choiceStudentOrWorkerView);
 page('/euOrNonEuStudent',EuOrNonEuStudentView);
 page('/euOrNonEuWorkerView', euOrNonEuWorkerView)
 page('/profileView', profileView);
-page('/overallView',overallView);
 page('/registerAsCitizen',registerMenuView)
 page('/mainView',mainView);
 page('/newsView', newsView);
+page('/liveChatView',liveChatView);
+page('/bankMenuView',bankMenuView)
+page('/digitalMenuView',digitalMenuView);
+page('/carMenuView', carMenuView);
+page('/housingMenuView',housingMenuView);
+page('/jobsMenuView',jobsMenuView)
 
 
 //updateNav();

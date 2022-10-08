@@ -8,7 +8,7 @@ const homeTemplate = () => html `
     <h1>Welcome to Survival Guide</h1>
     <div id="logo"></div>
     <p>Your virtual journal to help you manage everyday life as an international in Denmark</p>
-    <section id="dots">
+    <section class="dots">
         <div><div></div></div>
         <div><div></div></div>
         <div><div></div></div>
@@ -28,7 +28,7 @@ export function homeView(ctx){
     }
    
     ctx.render(homeTemplate());
-    let dots = document.querySelectorAll('#dots div')
+    let dots = document.querySelectorAll('.dots div')
 
     let par = document.querySelector('#welcome p').textContent.slice(0,5)
     for(let i = 0 ; i< dots.length; i++){

@@ -1,13 +1,13 @@
 
-import { closeBtn } from "../app.js";
+
 import {
     html
 } from "../lib.js";
 import { styleAllOptions } from "../until.js";
 
 
-export function registerMenuView(ctx) {
-    ctx.render(registerMenuTemplate());
+export function jobsMenuView(ctx) {
+    ctx.render(jobsMenuTemplate());
     const guideList = document.querySelector('.sectionWithSteps')
     guideList.innerHTML = htmll
     let pTags = guideList.querySelectorAll('p');
@@ -18,7 +18,7 @@ export function registerMenuView(ctx) {
     const backArrow = document.getElementById('info').querySelector('i').addEventListener('click',() => {
         ctx.page.redirect('/mainView')
     })
-    styleAllOptions('stepsRows','info')
+    styleAllOptions('stepsRows','bank')
     
 
 }
@@ -41,11 +41,12 @@ function showMore(x){
 
 
 let htmll = '';
-export const setupTemplateforCitizen = (data) => {
+export const setupTemplateforJobs = (data) => {
     htmll = '';
 
     data.forEach(element => {
         const guide = element.data();
+        console.log(guide);
         const li = `
         <li class="stepsRows">
             <div></div>
@@ -60,8 +61,8 @@ export const setupTemplateforCitizen = (data) => {
     
 }
 
-const registerMenuTemplate = () => html `
-    <section id="registerAsCitizen">
+const jobsMenuTemplate = () => html `
+    <section id="bankAccount">
 
         <nav><img class="logoInNav" src="./images/SurvivalGuide-logo.png">
         <section>
@@ -73,39 +74,14 @@ const registerMenuTemplate = () => html `
         <section id="info">
             <i class="gg-arrow-left backArrow"></i>
             
-            <h5>Register as a citizen</h5>
+            
+            <p>There are several different strategies you can follow when looking or a job.  Try to use a combination of these methods rather than solely relying on one way to do it. </p>
             <div id="progress-bar"></div>
             <div id="arrow"></div>
-            <div id="number">100%</div>
+            <div id="number">75%</div>
             <ul class="sectionWithSteps">
                 
             </ul>
         </section>
     </section>
 `
-
-
-/* 
-
-
-
-let registerUl;
-
-let sectionTemplate = (section) => html `
-<section>
-    <div></div>
-    <h2>${section.title}</h2>
-    <p>${section.description}</p>
-    <button>Read More</button>
-</section>
-`   
-export function setupTemplate(data){
-    let html = '';
-    data.forEach(element => {
-        const section = element.data();
-       const li = sectionTemplate(section)
-        html += li
-    });
-    registerUl.innerHTML = html;
-}
- */

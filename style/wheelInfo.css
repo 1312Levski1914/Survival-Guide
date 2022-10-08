@@ -1,0 +1,74 @@
+.logoInNav{
+    width: 35px;
+    height: 35px;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+}
+#registerAsCitizen section{
+    display: flex;
+    flex-direction: column;
+    
+}
+#registerAsCitizen section h3{
+    margin: 0;
+    padding: 0;
+}
+.backArrow {
+    color: blue;
+    width: 30px;
+}
+.sectionWithSteps {
+   list-style: none;
+   padding: 0;
+   width: 80%;
+   padding: 10%;
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+}
+.stepsRows{
+    display: flex;
+    height: max-content;
+    align-content: stretch;
+    flex-wrap: wrap;
+     
+ }
+ .optioninfo0{
+    display: flex;
+    order: 2;
+ }
+ .optioninfo1{
+    order: 0;
+ }
+ .optioninfo2{
+    order:1;
+ }
+ .optioninfo3{
+    order:4
+ }
+ .optioninfo4{
+    order:5;
+ }
+ .optioninfo5{
+    order:6;
+ }
+ .stepsRows h3{
+    width: 90%;
+ }
+.sectionWithSteps li div{
+    background-image: url(../images/blueicon-done.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+ }
+ .stepsRowBtn{
+    width: 100px;
+    height: 20px;
+    margin-left: 2px;
+    border-style: none;
+    margin-top: 20px;
+ }
