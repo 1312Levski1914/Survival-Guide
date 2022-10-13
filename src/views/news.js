@@ -40,7 +40,7 @@ db.collection('news').doc('meetDanes').get().then(doc => {
         meetDanesDot2 = doc.data().meetDanesDot2;
         meetDanesDot3 = doc.data().meetDanesDot3;
         cultureDot3 = doc.data().cultureDot3;
-        cultureDot2 = doc.data().cultureDot3;
+        cultureDot2 = doc.data().cultureDot2;
         climateDot2= doc.data().climateDot2;
 
 })
@@ -48,7 +48,7 @@ db.collection('news').doc('meetDanes').get().then(doc => {
 const newsTemplate = (climate,meetDanes,cultureShock) => html `
     <section id="news">
     <section id="header">
-        <video src="$1"></video>
+        <video src="./images/Sunset.mp4" autoplay loop></video>
         <h1>LIFE IN DENMARK</h1>
     </section>
     <section id="listOfNews">
@@ -72,13 +72,13 @@ export function newsView(ctx){
     homeBtn.addEventListener('click', () => {
         ctx.page.redirect('/mainView');
     })
-    interactiveInfo('paragraphs1','dots1');
-    interactiveInfo('paragraphs2','dots2');
-    interactiveInfo('paragraphs3','dots3','Stop');
+    interactiveInfo('paragraphs1','dots1','#2C3C3A','#fff');
+    interactiveInfo('paragraphs2','dots2','#2C3C3A','#fff');
+    interactiveInfo('paragraphs3','dots3','#2C3C3A','#fff','Stop');
  
 }
 
-function interactiveInfo(paragraphName,dotsName, stoper){
+function interactiveInfo(paragraphName,dotsName,col1,col2,stoper){
     let dots = document.getElementsByClassName(dotsName);
     let meetDaness = document.getElementsByClassName(paragraphName)[0];
     let firstParagraph = meetDaness.firstElementChild;
@@ -88,39 +88,39 @@ function interactiveInfo(paragraphName,dotsName, stoper){
     thirthParagraph.style.display = 'none';
     let meetDanesDot = dots[0];
     console.log(meetDanesDot);
-    meetDanesDot.firstElementChild.firstElementChild.style.backgroundColor = 'Green';
+    meetDanesDot.firstElementChild.firstElementChild.style.backgroundColor = col1;
     if(stoper){
         meetDanesDot.lastElementChild.style.display= 'none';
         firstParagraph.addEventListener('click', () => {
             firstParagraph.style.display = 'none';
             secondParagraph.style.display = '';
-            meetDanesDot.firstElementChild.firstElementChild.style.backgroundColor = 'White';
-            meetDanesDot.firstElementChild.nextElementSibling.firstElementChild.style.backgroundColor = 'Green';
+            meetDanesDot.firstElementChild.firstElementChild.style.backgroundColor = col2;
+            meetDanesDot.firstElementChild.nextElementSibling.firstElementChild.style.backgroundColor = col1;
         })
         secondParagraph.addEventListener('click', () => {
             secondParagraph.style.display = 'none';
             firstParagraph.style.display = '';
-            meetDanesDot.firstElementChild.nextElementSibling.firstElementChild.style.backgroundColor = 'White';
-            meetDanesDot.firstElementChild.firstElementChild.style.backgroundColor = 'Green';
+            meetDanesDot.firstElementChild.nextElementSibling.firstElementChild.style.backgroundColor = col2;
+            meetDanesDot.firstElementChild.firstElementChild.style.backgroundColor = col1;
         })
     }else{
         firstParagraph.addEventListener('click', () => {
             firstParagraph.style.display = 'none';
             secondParagraph.style.display = '';
-            meetDanesDot.firstElementChild.firstElementChild.style.backgroundColor = 'White';
-            meetDanesDot.firstElementChild.nextElementSibling.firstElementChild.style.backgroundColor = 'Green';
+            meetDanesDot.firstElementChild.firstElementChild.style.backgroundColor = col2;
+            meetDanesDot.firstElementChild.nextElementSibling.firstElementChild.style.backgroundColor = col1;
         })
         secondParagraph.addEventListener('click', () => {
             secondParagraph.style.display = 'none';
             thirthParagraph.style.display = '';
-            meetDanesDot.firstElementChild.nextElementSibling.firstElementChild.style.backgroundColor = 'White';
-            meetDanesDot.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.style.backgroundColor = 'Green';
+            meetDanesDot.firstElementChild.nextElementSibling.firstElementChild.style.backgroundColor = col2;
+            meetDanesDot.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.style.backgroundColor = col1;
         })
         thirthParagraph.addEventListener('click', () => {
             thirthParagraph.style.display = 'none';
             firstParagraph.style.display = '';
-            meetDanesDot.firstElementChild.firstElementChild.style.backgroundColor = 'Green';
-            meetDanesDot.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.style.backgroundColor = 'White';
+            meetDanesDot.firstElementChild.firstElementChild.style.backgroundColor = col1;
+            meetDanesDot.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.style.backgroundColor = col2;
         })
     }
    

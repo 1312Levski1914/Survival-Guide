@@ -1,6 +1,28 @@
 #news{
     background-color:#f7f7f7 ;
 }
+#header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+#header video{
+    width: 100%;
+
+}
+#header h1{
+    font-size: 16px;
+    font-weight: lighter;
+    padding: 10px;
+    width: fit-content;
+    border: 1px groove var(--background);
+    border-radius: 30px;
+    background-color: var(--background);
+    box-shadow: 1px 1px 0px 0px var(--backgroundFormColor);
+    position: absolute;
+    bottom: -35px;
+}
 .newsListImg1{
     width: 70%;
     height: 150px;
@@ -39,6 +61,7 @@
     box-shadow: 2px 3px 0px 1px var(--backgroundFormColor);
     background-color: var(--background);
     padding: 20px;
+    color: var(--colorsForParInNews);
 }
 #listOfNews section div h1{
    width: 70%;
@@ -73,6 +96,17 @@
     font-size: 10px;
     font-weight: 500;
  }
+
+ .paragraphs2 p{
+    font-family: var(--paragparhsInNews);
+    font-size: 10px;
+    font-weight: 500;
+ }
+ .paragraphs3 p{
+    font-family: var(--paragparhsInNews);
+    font-size: 10px;
+    font-weight: 500;
+ }
 #footer{
     width: 100%;
     height: 150px;
@@ -91,13 +125,14 @@
     left: 43%;
     top: 55px;
 }
-.dots1{
-    flex-direction: row;
-    gap: 5px;
-    flex-wrap: nowrap;
-}
 .dots1 div{
-    
+    background-color: var(--secBtnCollor);
+}
+.dots2 div{
+    background-color: var(--secBtnCollor);
+}
+.dots3 div{
+    background-color: var(--secBtnCollor);
 }
 .active{
     background-color: green;

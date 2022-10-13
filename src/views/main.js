@@ -15,19 +15,17 @@ const mainTemplate = (userData) => html `
             <a></a>
         </section>
     </div>
+    <div class="listOfTaskImg" ></div>
     <section id="listOfTask">
-        <div class="listOfTaskImg" onscroll = "scrollFunc()"></div>
         <div class="smallImg"></div>
         <section>
             <div class="wheel">
                <section >${taskOverall('Register as a citizen','100%','registerAsCitizen')}</section>
                <section >${taskOverall('Bank account Tax Card','50%','bankMenuView')}</section>
                <section >${taskOverall('Digital Services','0%','digitalMenuView')}</section>
-            </div>
-            <div id="hiddenWheelLi" onscroll = "scrollFunc()">
-                    ${taskOverall('Improve your car','0%','carMenuView')}
-                    ${taskOverall('Housing','50%','housingMenuView')}
-                    ${taskOverall('Jobs | Unions','50%','jobsMenuView')}
+               <section> ${taskOverall('Improve your car','0%','carMenuView')}</section>
+               <section >  ${taskOverall('Housing','50%','housingMenuView')}</section>
+               <section  >${taskOverall('Jobs | Unions','50%','jobsMenuView')}</section>
                </div>
         </section>
         <div class="chat"></div>
@@ -61,34 +59,14 @@ export function mainView(ctx){
     let profileImg = document.getElementById('navBar');
     profileImg=  profileImg.querySelector('img');
     profileImg.addEventListener('click',() =>{
-        document.removeEventListener('scroll',onScroll)
         ctx.page.redirect('/profileView')
     })
     
     newIcon.addEventListener('click',() => {
-        document.removeEventListener('scroll',onScroll)
         ctx.page.redirect('/newsView');
     })
     styleAllOptions('infoRow','Main')
 
-    
-    document.addEventListener('scroll', onScroll)
-        
-    function onScroll(){
-        let wheel = document.getElementsByClassName('wheel')[0];
-        let hiddenWheelLi = document.getElementById('hiddenWheelLi');
-
-        if(window.scrollY == 0 ){
-            let firstElement = wheel.firstElementChild
-            hiddenWheelLi.appendChild(firstElement)
-            let firstHidden = hiddenWheelLi.firstElementChild;
-            wheel.appendChild(firstHidden);
-        }else{
-            let firstElement = wheel.lastElementChild
-            hiddenWheelLi.appendChild(firstElement)
-            let firstHidden = hiddenWheelLi.firstElementChild;
-            wheel.appendChild(firstHidden);
-        }
-    }
+  
 }
 
