@@ -11,11 +11,11 @@ export const setupTemplateforNews = (picnumber, h1,p,p1,p2) => html `
             <div></div>
             <h1>${h1}</h1>
         </div>
-        <section class="paragraphs${picnumber}">
+        <div class="paragraphs${picnumber}">
             <p>${p}</p>
             <p>${p1}</p>
             <p>${p2}</p>
-        </section>
+        </div>
         <div class="dots dots${picnumber}">
             <div><div></div></div>
             <div><div></div></div>
@@ -46,6 +46,7 @@ db.collection('news').doc('meetDanes').get().then(doc => {
 })
 
 const newsTemplate = (climate,meetDanes,cultureShock) => html `
+    <section id="news">
     <section id="header">
         <video src="$1"></video>
         <h1>LIFE IN DENMARK</h1>
@@ -59,6 +60,7 @@ const newsTemplate = (climate,meetDanes,cultureShock) => html `
     </section>
     <section id="footer">
         <div></div>
+    </section>
     </section>
 `
 

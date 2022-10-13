@@ -26,6 +26,8 @@ main{
     margin: auto;
     padding-top: 15%;
     color: var(--secBtnCollor);
+    font-weight: lighter;
+    font-size: 26px;
 }
 #welcome p{
     width: 70%;
@@ -85,8 +87,10 @@ main{
     background-image: linear-gradient(to right, var(--btnCollor) 0%, #A2CFEB 30% , #736165  60% ,#736165 75%, #2C3C3A  90%);
     background-size: 100% auto;
     color: white;            
-    box-shadow: 0 0 10px var(--secBtnCollor);
     text-decoration: none;
+}
+.btnLogin{
+    opacity: 0.5;
 }
 
 #btn-div a p{

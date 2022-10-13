@@ -22,19 +22,19 @@ const profileTemplate = () => html `
         <div class= "arrows right"></div>
         <section class="pictureAndCountry">    
             <div id='profile-picture'></div>
-            <div><div class="flag"></div><h3>FRANCE</h3></div>
+            <div id="country"><div class="flag"></div><h3>FRANCE</h3></div>
         </section>
     <hr>
         <div class="firstSection">
             <h3>Name</h3>
-            <p id= "firstName"></p>
+            <input id= "firstName" value="Name">
             <button class="button btnProfile" id="edit-name">Edit</button>
         </div>
     <hr>
         <div class="firstSection">
             <h3>Email address</h3>
-            <p id="email"></p>
-            <button class="button btnProfile">Edit</button>
+            <input id= "email" value="email">
+            <button class="button btnProfile" id="edit-email">Edit</button>
         </div>
     <hr>
         <div class="firstSection">
@@ -49,10 +49,6 @@ const profileTemplate = () => html `
         <i></i>
     </section>
         <button id="logout">Logout</button>
-        <a href="/overallView" class ="button">Overall</a>
-        <section id="collection">
-
-        </section>
 
     </section>
 `
@@ -81,9 +77,9 @@ export const setupUI = (user) => {
 export function updateInfo(userData){
     if(document.getElementById('firstName')){
         let firstName = document.getElementById('firstName');
-        firstName.textContent = userData.firstName + ' ' + userData.lastName
+        firstName.value = userData.firstName + ' ' + userData.lastName
         let email = document.getElementById('email');
-        email.textContent = userData.email;
+        email.value = userData.email;
     }
 }
 
@@ -95,13 +91,22 @@ export function profileView(ctx) {
     updateInfo(userData)
     
     let btn = document.getElementById('edit-name');
+    let btnEmail = document.getElementById('edit-email')
+    let names = document.getElementById('firstName')
+    let email = document.getElementById('email')
     btn.addEventListener('click', () => {
-        console.log(userData.firstName);
+        names.focus();
+        
+    })
+    btnEmail.addEventListener('click', () => {
+        email.focus();
+        
     })
     closeBtn(ctx,'profile','/mainView')
    
    
     let logoutBtn = document.getElementById('logout');
     logoutBtn.addEventListener('click',getLogout)
+
 
 }

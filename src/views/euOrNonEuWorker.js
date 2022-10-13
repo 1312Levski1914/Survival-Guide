@@ -6,16 +6,16 @@ import { getUserData, setUserData } from "../until.js";
 
 const euOrNonEuWorkerTemplate = () => html `
 <section id="choice">
-    <h1>Choose your module</h1>
+    <h2>Choose your module</h2>
     
-    <div class="choice euWorker">
+    <div class="choice euWorker brownCircleChoice">
         <div></div>
         <p></p>
-        <a href="/mainView" class ="button">Apply as a EU worker</a>
+        <a href="/mainView">Apply as a EU worker</a>
     </div>
-    <div class="choice NonEuWorker">
+    <div class="choice NonEuWorker brownCircleChoice">
         <div></div>
-        <a href="/mainView" class ="button">Apply as a NON EU worker</a>
+        <a href="/mainView" >Apply as a NON EU worker</a>
     </div>
 </section>
 `

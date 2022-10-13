@@ -46,7 +46,6 @@ export const setupTemplateforBankAccount = (data) => {
 
     data.forEach(element => {
         const guide = element.data();
-        console.log(guide);
         const li = `
         <li class="stepsRows">
             <div></div>

@@ -4,8 +4,6 @@ import {
 } from "../lib.js";
 import { getUserData, styleAllOptions } from "../until.js";
 
-
-
 const mainTemplate = (userData) => html `
 <section id="main">
     <div id="navBar">
@@ -18,12 +16,19 @@ const mainTemplate = (userData) => html `
         </section>
     </div>
     <section id="listOfTask">
-        <div class="listOfTaskImg"></div>
+        <div class="listOfTaskImg" onscroll = "scrollFunc()"></div>
         <div class="smallImg"></div>
         <section>
             <div class="wheel">
-                ${overallTemplate()}
+               <section >${taskOverall('Register as a citizen','100%','registerAsCitizen')}</section>
+               <section >${taskOverall('Bank account Tax Card','50%','bankMenuView')}</section>
+               <section >${taskOverall('Digital Services','0%','digitalMenuView')}</section>
             </div>
+            <div id="hiddenWheelLi" onscroll = "scrollFunc()">
+                    ${taskOverall('Improve your car','0%','carMenuView')}
+                    ${taskOverall('Housing','50%','housingMenuView')}
+                    ${taskOverall('Jobs | Unions','50%','jobsMenuView')}
+               </div>
         </section>
         <div class="chat"></div>
     </section>
@@ -39,15 +44,6 @@ const mainTemplate = (userData) => html `
     </section>
 </section>
 `
-const overallTemplate = () => html `
-    ${taskOverall('Register as a citizen','100%','registerAsCitizen')}
-    ${taskOverall('Bank account Tax Card','50%','bankMenuView')}
-    ${taskOverall('Digital Services','0%','digitalMenuView')}
-    ${taskOverall('Improve your car','0%','carMenuView')}
-    ${taskOverall('Housing','50%','housingMenuView')}
-    ${taskOverall('Jobs | Unions','50%','jobsMenuView')}
-
-`
 const taskOverall= (title, progress,path) => html`
     <section class="infoRow">
         <div class="balloonProcent">
@@ -58,9 +54,6 @@ const taskOverall= (title, progress,path) => html`
 `
 export function mainView(ctx){
     let userData =getUserData()
-    console.log(userData);
-    
-   
     ctx.render(mainTemplate(userData));
 
     let siteMap = document.getElementById('site-map');
@@ -68,17 +61,34 @@ export function mainView(ctx){
     let profileImg = document.getElementById('navBar');
     profileImg=  profileImg.querySelector('img');
     profileImg.addEventListener('click',() =>{
+        document.removeEventListener('scroll',onScroll)
         ctx.page.redirect('/profileView')
     })
     
     newIcon.addEventListener('click',() => {
+        document.removeEventListener('scroll',onScroll)
         ctx.page.redirect('/newsView');
     })
     styleAllOptions('infoRow','Main')
 
-   
-
-
     
+    document.addEventListener('scroll', onScroll)
+        
+    function onScroll(){
+        let wheel = document.getElementsByClassName('wheel')[0];
+        let hiddenWheelLi = document.getElementById('hiddenWheelLi');
+
+        if(window.scrollY == 0 ){
+            let firstElement = wheel.firstElementChild
+            hiddenWheelLi.appendChild(firstElement)
+            let firstHidden = hiddenWheelLi.firstElementChild;
+            wheel.appendChild(firstHidden);
+        }else{
+            let firstElement = wheel.lastElementChild
+            hiddenWheelLi.appendChild(firstElement)
+            let firstHidden = hiddenWheelLi.firstElementChild;
+            wheel.appendChild(firstHidden);
+        }
+    }
 }
 

@@ -6,16 +6,16 @@ import { getUserData, setUserData } from "../until.js";
 
 const EuOrNonEuStudentTemplate = () => html `
 <section id="choice">
-    <h1>Choose your module</h1>
+    <h2>Choose your module</h2>
     
-    <div class="choice euStudent">
+    <div class="choice euStudent blueCircleChoice">
         <div></div>
     
-        <a href="/mainView" class ="button">Apply as a EU student</a>
+        <a href="/mainView">Apply as a EU student</a>
     </div>
-    <div class="choice NonEuStudent">
+    <div class="choice NonEuStudent blueCircleChoice">
         <div></div>
-        <a href="/mainView" class ="button">Apply as a NON EU student</a>
+        <a href="/mainView">Apply as a NON EU student</a>
     </div>
 </section>
 `
@@ -33,4 +33,6 @@ export function EuOrNonEuStudentView(ctx){
         userData['status'] = 'Non Eu Student';
         setUserData(userData)
     })
+    let aTag = divs[0].querySelector('a');
+    aTag.classList.add('styleEuStudent')
 }

@@ -27,7 +27,7 @@
 }
 .flag{
     width: 30px;
-    height: 30px;
+    height: 25px;
     background-image: url(../images/france.jpg);
     background-size: contain;
 
@@ -37,7 +37,7 @@
     justify-content: space-between;
     position: relative;
     align-items: center;
-    height: 15%;
+    height: 10%;
     
 }
 .firstSection h3{
@@ -68,4 +68,48 @@
     bottom: 5%;
     font-size: 20px;
     font-weight:600;
+}
+#country{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}
+#logout{
+    width: 270px;
+    height: 43px;
+    margin: 0 auto;
+    padding: auto;
+    position: relative;
+    left: 10%;
+    top: 5%;
+    text-align: center;
+    background-color: var(--btnCollor);
+    border-radius: 25px;
+    background-image: linear-gradient(to right, var(--btnCollor) 0%, #A2CFEB 30% , #736165  60% ,#736165 75%, #2C3C3A  90%);
+    background-size: 100% auto;
+    color: white;            
+    text-decoration: none;
+}
+#firstName::placeholder{
+    color: var(--secBtnCollor);
+    font-size: 16px;
+}
+#firstName{
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    margin: 16px auto;
+}
+#email::placeholder{
+    color: var(--secBtnCollor);
+    font-size: 16px;
+}
+#email{
+    border: none;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    margin: 16px auto;
 }

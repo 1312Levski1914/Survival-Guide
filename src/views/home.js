@@ -24,7 +24,7 @@ const homeTemplate = () => html `
 
 export function homeView(ctx){
     if(getUserData()){
-        ctx.page.redirect('/mainView');
+        ctx.page.redirect('/profileView');
     }
    
     ctx.render(homeTemplate());

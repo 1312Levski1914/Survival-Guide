@@ -8,15 +8,15 @@ import { getUserData, setUserData } from "../until.js";
 
 const choiceStudentOrWorkerTemplate = () => html `
 <section id="choice">
-    <h1>Choose your module</h1>
+    <h2>Choose your module</h2>
     
-    <div class="choice blueCircle">
+    <div class="choice blueCircleChoice">
         <div></div>
-        <a href="/euOrNonEuStudent" class ="button">Apply as a Student</a>
+        <a href="/euOrNonEuStudent" >Apply as a Student</a>
     </div>
-    <div class="choice brownCircle">
+    <div class="choice brownCircleChoice">
         <div></div>
-        <a href="/euOrNonEuWorkerView" class ="button">Apply as a Worker</a>
+        <a href="/euOrNonEuWorkerView" >Apply as a Worker</a>
     </div>
 </section>
 `
