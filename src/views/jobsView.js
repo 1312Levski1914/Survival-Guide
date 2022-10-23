@@ -3,7 +3,7 @@
 import {
     html
 } from "../lib.js";
-import { styleAllOptions } from "../until.js";
+import { progresBar, styleAllOptions, ticksFunction } from "../until.js";
 
 
 export function jobsMenuView(ctx) {
@@ -18,8 +18,9 @@ export function jobsMenuView(ctx) {
     const backArrow = document.getElementById('info').querySelector('i').addEventListener('click',() => {
         ctx.page.redirect('/mainView')
     })
-    styleAllOptions('stepsRows','bank')
-    
+    styleAllOptions('stepsRows','jobs')
+    progresBar('Jobs')
+    ticksFunction();
 
 }
 
@@ -48,9 +49,13 @@ export const setupTemplateforJobs = (data) => {
         const guide = element.data();
         const li = `
         <li class="stepsRows">
-            <div></div>
+            <div class="tickBox"></div>
+            
             <h3>${guide.title}</h3>
-            <p>${guide.description}</p>
+            <div class="descripeAndLine">
+                
+            <div class="line"></div><p>${guide.description}</p>
+            </div>
             <button class="button stepsRowBtn">Read More</button>
         </li>
         `;
@@ -71,13 +76,15 @@ const jobsMenuTemplate = () => html `
         </nav>
         
         <section id="info">
-            <i class="gg-arrow-left backArrow"></i>
-            
-            
-            <p>There are several different strategies you can follow when looking or a job.  Try to use a combination of these methods rather than solely relying on one way to do it. </p>
-            <div id="progress-bar"></div>
-            <div id="arrow"></div>
-            <div id="number">75%</div>
+            <div class="header">
+                <i class="gg-arrow-left backArrow"></i>
+                <h5>Jobs| Unions</h5>
+                <div id="progress-bar"><div class="full"></div><div class="empty"></div></div>
+                <div class="arrowNumber">
+                    <div id="arrow"></div>
+                    <p id="number" class="numberForCitizen">0%</p>
+                </div>
+            </div>
             <ul class="sectionWithSteps">
                 
             </ul>

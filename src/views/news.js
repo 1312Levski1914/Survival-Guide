@@ -35,7 +35,7 @@ let climateDot2 = '';
 
 db.collection('news').doc('meetDanes').get().then(doc => {
         climate = doc.data().climate;
-        meetDanes = doc.data().meetDanes;
+        meetDanes = doc.data().meetDanes1;
         cultureShock = doc.data().cultureShock;
         meetDanesDot2 = doc.data().meetDanesDot2;
         meetDanesDot3 = doc.data().meetDanesDot3;

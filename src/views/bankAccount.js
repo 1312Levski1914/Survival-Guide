@@ -3,7 +3,7 @@
 import {
     html
 } from "../lib.js";
-import { styleAllOptions } from "../until.js";
+import { progresBar, styleAllOptions, ticksFunction } from "../until.js";
 
 
 export function bankMenuView(ctx) {
@@ -19,6 +19,8 @@ export function bankMenuView(ctx) {
         ctx.page.redirect('/mainView')
     })
     styleAllOptions('stepsRows','bank')
+    progresBar('Bank')
+    ticksFunction();
     
 
 }
@@ -48,9 +50,13 @@ export const setupTemplateforBankAccount = (data) => {
         const guide = element.data();
         const li = `
         <li class="stepsRows">
-            <div></div>
+            <div class="tickBox"></div>
+            
             <h3>${guide.title}</h3>
-            <p>${guide.description}</p>
+            <div class="descripeAndLine">
+                
+            <div class="line"></div><p>${guide.description}</p>
+            </div>
             <button class="button stepsRowBtn">Read More</button>
         </li>
         `;
@@ -63,7 +69,8 @@ export const setupTemplateforBankAccount = (data) => {
 const bankMenuTemplate = () => html `
     <section id="bankAccount">
 
-        <nav><img class="logoInNav" src="./images/SurvivalGuide-logo.png">
+        <nav>
+            <img class="logoInNav" src="./images/SurvivalGuide-logo.png">
         <section>
             <h3>Survival</h3>
             <h3>Guide</h3>
@@ -71,12 +78,19 @@ const bankMenuTemplate = () => html `
         </nav>
         
         <section id="info">
-            <i class="gg-arrow-left backArrow"></i>
-            
-            <h5>Get a tax card and a bank account</h5>
-            <div id="progress-bar"></div>
-            <div id="arrow"></div>
-            <div id="number">75%</div>
+            <div class="header">
+                <i class="gg-arrow-left backArrow"></i>
+                <h5>Get a tax card and a bank account</h5>
+                <div id="progress-bar">
+                    <div class="full"></div>
+                    <div class="empty"></div>
+                    <div class="arrowNumber">
+                        <div id="arrow"></div>
+                        <p id="number">75%</p>
+                    </div>
+                </div>
+                
+            </div>
             <ul class="sectionWithSteps">
                 
             </ul>

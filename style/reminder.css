@@ -1,5 +1,4 @@
-
-#reminder{
+#reminder {
     width: 80vw;
     height: 100vh;
     position: relative;
@@ -8,7 +7,8 @@
     flex-direction: column;
     text-align: center;
 }
-#reminder h5{
+
+#reminder h5 {
     font-family: var(--natoSans);
     font-size: 25px;
     font-weight: bold;
@@ -16,14 +16,16 @@
     margin-bottom: 10px;
     margin-top: 100px;
 }
+
 .reminderInfo {
     font-family: var(--natoSans);
     font-size: 20px;
     font-weight: 500;
     width: 268px;
-    margin: 10px auto 30px ;
+    margin: 10px auto 30px;
 }
-.blueCircle{
+
+.blueCircle {
     width: 226px;
     height: 226px;
     position: absolute;
@@ -34,7 +36,8 @@
     z-index: -20;
     opacity: 0.7;
 }
-.brownCircle{
+
+.brownCircle {
     width: 173px;
     height: 173px;
     position: absolute;
@@ -45,7 +48,51 @@
     z-index: -10;
     opacity: 0.7;
 }
-.reminderLi{
+.item{
+    margin: 10px auto;
+}
+.toggle-pill-bw input[type="checkbox"] {
+    display: none;
+    
+}
+
+.toggle-pill-bw input[type="checkbox"]+label {
+    display: block;
+    position: relative;
+    width: 3em;
+    height: 1.6em;
+    margin-bottom: 20px;
+    background: #50565a;
+    border-radius: 1em;
+    cursor: pointer;
+    -webkit-transition: background 0.1s ease-in-out;
+    transition: background 0.1s ease-in-out;
+}
+
+.toggle-pill-bw input[type="checkbox"]+label:before {
+    content: "";
+    display: block;
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 1em;
+    background: #f7f2f2;
+    position: absolute;
+    left: 0.2em;
+    top: 0.2em;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.toggle-pill-bw input[type="checkbox"]:checked+label {
+    background: #40464a;
+}
+
+.toggle-pill-bw input[type="checkbox"]:checked+label:before {
+    left: 1.6em;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.reminderLi {
     width: 235px;
     height: 57px;
     border-radius: 20px;
@@ -56,7 +103,8 @@
     margin-bottom: 20px;
 
 }
-.reminderLi h4{
+
+.reminderLi h4 {
     font-size: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 1px;
@@ -65,29 +113,34 @@
     color: black;
     font-weight: 500;
 }
-.reminderLi p{
+
+.reminderLi p {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 11px;
     text-align: start;
     margin-left: 25px;
     font-weight: 500;
 }
-.dot{
+
+.dot {
     width: 7px;
     height: 7px;
     background-color: black;
     position: absolute;
-    top:7px;
+    top: 7px;
     left: 5px;
     border-radius: 50%;
 }
-.notifyToLeft{
+
+.notifyToLeft {
     margin-left: -40px;
 }
-.notifyToRight{
+
+.notifyToRight {
     margin-left: 30px;
 }
-#btns{
+
+#btns {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -96,11 +149,18 @@
     text-align: center;
     bottom: 10%;
     width: 100%;
+    text-align: center;
+    line-height: 28px;
+    
 }
-.noBtn{
+.btnReminder{
+    text-align: center;
+    
+}
+.noBtn {
     text-decoration: none;
     font-size: 10px;
-    font-family:var(--natoSans);
+    font-family: var(--natoSans);
     color: black;
     text-decoration-line: underline;
     font-weight: 700;

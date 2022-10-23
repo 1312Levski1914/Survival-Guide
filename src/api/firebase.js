@@ -1,13 +1,13 @@
+const firebaseConfig = {
+    apiKey: "AIzaSyBY63rQCZwlUMewdR6CreWLry05frrRpJY",
+    authDomain: "survival-guide-dk.firebaseapp.com",
+    projectId: "survival-guide-dk",
+    storageBucket: "survival-guide-dk.appspot.com",
+    messagingSenderId: "752913256416",
+    appId: "1:752913256416:web:55862ee9793465e36da585"
+  };
 
- const firebaseConfig = {
-    apiKey: "AIzaSyCugRv_wClIS7ZJK303gkX0C-4_OSWfNT4",
-    authDomain: "survivalguidedk.firebaseapp.com",
-    projectId: "survivalguidedk",
-    storageBucket: "survivalguidedk.appspot.com",
-    messagingSenderId: "167157510780",
-    appId: "1:167157510780:web:95221773959569def68ff9",
-    measurementId: "G-4EQF1R62J6"
-}
+
 
 firebase.initializeApp(firebaseConfig);
 

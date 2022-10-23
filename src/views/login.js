@@ -54,17 +54,21 @@ export function loginView(ctx){
 
         const email = formData.get('email').trim();
         const password = formData.get('password').trim()
-        
-      
         if(email == '' || password == ''){
             return notify('All fields are required')
         }
         
+    
         
-        
-        await login(email,password)
+        try{
+            await login(email,password)
             .then(()=>{
             ctx.page.redirect('/mainView');
         
-    })}
+    })
+        }
+        catch(err){
+            console.log(err.message);
+        }
+        }
 }

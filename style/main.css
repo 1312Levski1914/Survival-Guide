@@ -10,16 +10,18 @@
     border-bottom-right-radius: 20px;
     background-color: var(--background);
     z-index: 32;
+    padding-top: 15px;
+    
 }
 #navBar img{
-width: 50px;
+width: 60px;
 border-radius: 50%;
 margin: 10px;
 }
 #listOfTask{
     position: relative;
     width: 100%;
-    height: 80%;
+    height: 75%;
     z-index: 20;
 }
 .listOfTaskImg{
@@ -28,11 +30,19 @@ margin: 10px;
     background-image: url(../images/Background.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     position: absolute;
     top: 0px;
     z-index: -20;
-    
+}
+.listOfTaskImgOpacity{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    z-index: -15;
+    background-color: black;
+    opacity: 0.50;
 }
 .smallImg{
     width: 60%;
@@ -41,7 +51,7 @@ margin: 10px;
     background-size: cover;
     position: absolute;
     left:-10%;
-    top: 18%;
+    top: 22%;
     
 }
 .listOfTask section{
@@ -51,11 +61,11 @@ margin: 10px;
     width: 60%;
     height: auto;
     position: absolute;
-    right: 10%;
+    right: 5%;
     top: 12%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
     z-index: 20;
 }
@@ -66,21 +76,41 @@ margin: 10px;
     z-index: 20;
 }
 .balloonProcent{
-    width: 45px;
-    height: 45px;
+    max-width: 45px;
+    max-height: 45px;
+    position: relative;
     background-color: var(--background);
     border-radius: 50%;
+    padding: 26px;
+    background: linear-gradient(to right, #6EC3EF, #2C3C3A);
 
 }
-.balloonProcent p{
-    position: relative;
-    top: 0.7em;
-    width: 70%;
+.balloonText{
+    background:var(--background);
+    color: var(--secBtnCollor);
+    padding: 1px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
     margin: auto;
+    text-align: center;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px; 
 }
+
 .infoRow{
     display: flex;
     flex-direction: row;
+}
+.infoRow a{
+    font-family: 'Bahnschrift', sans-serif;
+    width: 100px;
+    text-align: center;
+    margin-left: 15px;
 }
 .chat{
     width: 50px;
@@ -95,21 +125,33 @@ margin: 10px;
 }
 #site-map{
     width: 100%;
-    height: 100px;
+    height: 130px;
     position: relative;
+    margin-top: -40px;
+    
 }
 .bottomNav{
     width: 100%;
-    height: 100%;
     background-image: url(../images/bar.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    position: relative;
+    position: absolute;
     z-index: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    position: absolute;
+    bottom: 10px;
 }
+.makeMeWhite{
+    background-color: #fff;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    bottom: 0%;
+
+}
+
 .newsPeaper{
     width:50px;
     height: 50px;
@@ -156,4 +198,16 @@ margin: 10px;
 }
 lastSection{
     margin-left: -30px;
+}
+.optionMain0{
+    margin-left: -50px;
+}
+.optionMain2{
+    margin-left: 50px;
+}
+.optionMain3{
+    margin-left: 50px;
+}
+.optionMain5{
+    margin-left: -50px;
 }

@@ -16,12 +16,13 @@ const mainTemplate = (userData) => html `
         </section>
     </div>
     <div class="listOfTaskImg" ></div>
+    <div class="listOfTaskImgOpacity"></div>
     <section id="listOfTask">
         <div class="smallImg"></div>
         <section>
             <div class="wheel">
                <section >${taskOverall('Register as a citizen','100%','registerAsCitizen')}</section>
-               <section >${taskOverall('Bank account Tax Card','50%','bankMenuView')}</section>
+               <section >${taskOverall('Bank account Tax Card','75%','bankMenuView')}</section>
                <section >${taskOverall('Digital Services','0%','digitalMenuView')}</section>
                <section> ${taskOverall('Improve your car','0%','carMenuView')}</section>
                <section >  ${taskOverall('Housing','50%','housingMenuView')}</section>
@@ -40,18 +41,21 @@ const mainTemplate = (userData) => html `
             <div class="notifications"></div>
         </div>
     </section>
+    <div class="makeMeWhite"></div>
+    
 </section>
 `
 const taskOverall= (title, progress,path) => html`
     <section class="infoRow">
         <div class="balloonProcent">
-            <p>${progress}</p>
+            <p class="balloonText">${progress}</p>
         </div>
         <a href="/${path}">${title}</a>
     </section>
 `
 export function mainView(ctx){
     let userData =getUserData()
+    console.log(userData);
     ctx.render(mainTemplate(userData));
 
     let siteMap = document.getElementById('site-map');

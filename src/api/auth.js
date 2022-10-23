@@ -30,9 +30,16 @@ import { setupTemplateforJobs } from '../views/jobsView.js';
 
 
 
+
 auth.onAuthStateChanged(user => {
     if (user) {
-        db.collection('registerAsCitizen').onSnapshot(snapshot => {
+        db.collection('users').onSnapshot(snapshot => {
+            setupUI(user)
+        },err=>{
+            notify(err.message)
+
+        });
+        db.collection('mainViewTask').onSnapshot(snapshot => {
             setupTemplateforCitizen(snapshot.docs)
             setupUI(user);
         }, err => {
@@ -89,7 +96,7 @@ export function logout() {
 }
 
 export function register(email, password, firstName, lastName, ) {
-    return auth.createUserWithEmailAndPassword(email, password).then(cred => {
+    auth.createUserWithEmailAndPassword(email, password).then(cred => {
         return db.collection('users').doc(cred.user.uid).set({
             'firstName': firstName,
             'lastName': lastName,

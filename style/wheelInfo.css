@@ -3,9 +3,25 @@
     height: 35px;
 }
 nav{
-    display: flex;
-    flex-direction: row;
+   display: flex;
+   align-items: center;
+   border-bottom-left-radius: 20px;
+   border-bottom-right-radius: 20px;
+   background-color: #f5f5f5;
+   z-index: 32;
+   height: 100px;
+   
 }
+nav img{
+width: 50px;
+border-radius: 50%;
+margin: 10px;
+}
+nav section h3{
+   font-family:'ethnocentric';
+   font-weight: 200;
+}
+
 #registerAsCitizen section{
     display: flex;
     flex-direction: column;
@@ -16,8 +32,107 @@ nav{
     padding: 0;
 }
 .backArrow {
-    color: blue;
-    width: 30px;
+    color: var(--firstcollor);
+    position: absolute;
+    left: -50%;
+    top: 30px;
+
+}
+.header{
+   width: 70%;
+   margin: auto;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.header h5{
+   font-family: 'Poppins';
+   font-size: 18px;
+   font-weight: 500;
+   text-align: center;
+}
+#progress-bar{
+   display: flex;
+   flex-direction: row;
+   width: 192px;
+   height: 15px;
+   border-radius: 10px;
+   
+}
+.full{
+   width: 100%;
+   background-color: var(--secBtnCollor);
+   height: 100%;
+}
+.empty{
+   width: 0;
+   background-color: var(--firstcollor);
+}
+.arrowNumber{
+   position: absolute;
+   top: 98%;
+   left: 82%;
+}
+.fullForBank{
+   width: 75%;
+}
+.emptyForBank{
+   width: 25%;
+}
+.arrowNumberForBank{
+   left: 20%;
+}
+.fullForDigital{
+width: 0%;
+}
+.emptyForDigital{
+width: 100%;
+}
+.arrowNumberForDigital{
+   left: -33%;
+}
+.fullForCars{
+   width: 0%;
+}
+.emptyForCars{
+   width: 100%;
+}
+.fullForHousing{
+   width: 50%;
+}
+.emptyForHousing{
+   width: 50%;
+}
+.arrowNumberForHousing{
+   left: 4%;
+}
+.arrowNumberForCars{
+   left: -32%;
+}
+.fullForJobs{
+   width: 50%;
+}
+.emptyForJobs{
+   width: 50%;
+}
+.arrowNumberForJobs{
+   left: 4%;
+}
+#arrow{
+   content: "";
+   width: 0;
+   height: 0;
+   border: 6px solid transparent;
+   border-color: transparent transparent var(--secBtnCollor) transparent;
+}
+#number{
+   position: relative;
+   bottom: 18px;
+   left: -5px;
+   font-family: var(--natoSans);
+   color: var(--secBtnCollor);
 }
 .sectionWithSteps {
    list-style: none;
@@ -26,7 +141,7 @@ nav{
    padding: 10%;
    display: flex;
    flex-direction: column;
-   gap: 30px;
+   gap: 10px;
 }
 .stepsRows{
     display: flex;
@@ -35,29 +150,52 @@ nav{
     flex-wrap: wrap;
      
  }
+ .line{
+   width: 3px;
+   height: 100%;
+   position:relative;
+   background-color: var(--firstcollor);
+   margin-left:12px;
+
+ }
+ .descripeAndLine{
+   display: flex;
+   flex-direction: row;
+   
+
+ }
+ .stepsRows div p{
+   margin-left:30px;
+ }
  .optioninfo0{
     display: flex;
-    order: 2;
+    order: 0;
  }
  .optioninfo1{
-    order: 0;
+    order: 5;
  }
  .optioninfo2{
     order:1;
  }
  .optioninfo3{
-    order:4
+    order:3
  }
  .optioninfo4{
-    order:5;
+    order:2;
  }
  .optioninfo5{
     order:6;
  }
+.optiondigital1{
+   order:2;
+}
+.optiondigital2{
+   order:1;
+ }
  .stepsRows h3{
     width: 90%;
  }
-.sectionWithSteps li div{
+.tickBox{
     background-image: url(../images/blueicon-done.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -65,10 +203,19 @@ nav{
     width: 30px;
     height: 30px;
  }
+ .untickBox{
+   background-image: url(../images/bluecircle.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+ }
  .stepsRowBtn{
-    width: 100px;
+    width: 80px;
     height: 20px;
-    margin-left: 2px;
+    margin-left: 15px;
     border-style: none;
     margin-top: 20px;
+    margin-bottom: 20px;
  }

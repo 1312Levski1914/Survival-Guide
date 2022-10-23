@@ -6,7 +6,7 @@ import {
 import {
     notify
 } from "../notify.js";
-import { setUserData } from "../until.js";
+import { getUserData, setUserData } from "../until.js";
 
 //import { getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 /*
@@ -29,11 +29,13 @@ const registerTemplate = (onSubmit) => html `
     <p>Already an user? <span class = "signIn">Sign In</span></p>
     <form @submit = ${onSubmit} id = "Sign-up-Form" action="#/register" method="post">
         <div class= "container">
-            <input id="firstName" type="text" placeholder="First Name" name="firstName" >
-            <input id="lastName" type="text" placeholder="Last Name" name="lastName">
-            <input id="email" type="email" placeholder="E-Mail" name="email">
-            <input id= "password"  type="password" placeholder="Password" name="password">
-            <input id= "rePass" type="password" placeholder="Repeat Password" name="rePass">
+            <label><input id="firstName" type="text" placeholder="First Name" name="firstName" ></label>
+            <label><input id="lastName" type="text" placeholder="Last Name" name="lastName"></label>
+            
+            <label><input id="email" type="email" placeholder="E-Mail" name="email"></label>
+            
+            <label><input id= "password"  type="password" placeholder="Password" name="password"></label>
+            
             <input type="submit" class="button registerbtn" value="Sign Up">
         </div>
     </form>
@@ -64,6 +66,7 @@ export function registerView(ctx) {
 
         //sign up to the user
         register(email,password,firstName,lastName)
+       
         let userData = {
             'firstName': firstName,
             'lastName': lastName,
@@ -71,11 +74,14 @@ export function registerView(ctx) {
             password
         }
         setUserData(userData)
-        
+        console.log(getUserData());
         ctx.page.redirect('/reminder');
 
     }
-    
+    let inputs = signupForm.querySelectorAll('input');
+    inputs.forEach(x => {
+        x.classList.add('colorInputs');
+    })
     
 }
 

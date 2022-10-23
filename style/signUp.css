@@ -71,6 +71,11 @@
     border: none;
     height: 43px;
     align-items: center;
+    width: 80%;
+    color: var(--background);
+    padding-left: 10px;
+    font-size: 16px;
+    font-family: var(--natoSans);
 }
 .container input::placeholder{
     color: var(--background);
@@ -78,6 +83,12 @@
     font-size: 16px;
     font-weight:500;
     padding-left: 10px;
+}
+.container input:focus{
+
+}
+.colorInputs::-webkit-input-placeholder{
+    color: var(--background);
 }
 #orSignInText{
     display: flex;
@@ -109,4 +120,19 @@
     height: 48px;
     background-color: #707070;
     border-radius: 25px;
+}
+#social i:nth-child(1){
+    background-image: url(../images/googleICON.png);
+    background-position: center;
+    background-size: cover;
+}
+#social i:nth-child(2){
+    background-image: url(../images/facebookICON.png);
+    background-position: center;
+    background-size: cover;
+}
+#social i:nth-child(3){
+    background-image: url(../images/inICON.png);
+    background-position: center;
+    background-size: cover;
 }

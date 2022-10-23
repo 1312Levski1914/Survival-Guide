@@ -1,9 +1,11 @@
-
-
 import {
     html
 } from "../lib.js";
-import { styleAllOptions } from "../until.js";
+import {
+    progresBar,
+    styleAllOptions,
+    ticksFunction
+} from "../until.js";
 
 
 export function carMenuView(ctx) {
@@ -13,29 +15,29 @@ export function carMenuView(ctx) {
     let pTags = guideList.querySelectorAll('p');
     pTags.forEach(x => x.style.display = 'none')
     let h3Tag = guideList.querySelectorAll('button')
-    .forEach(x => x.addEventListener('click',showMore))
+        .forEach(x => x.addEventListener('click', showMore))
 
-    const backArrow = document.getElementById('info').querySelector('i').addEventListener('click',() => {
+    const backArrow = document.getElementById('info').querySelector('i').addEventListener('click', () => {
         ctx.page.redirect('/mainView')
     })
-    styleAllOptions('stepsRows','bank')
-    
-
+    styleAllOptions('stepsRows', 'cars')
+    progresBar('Cars')
+    ticksFunction();
 }
 
-function showMore(x){
+function showMore(x) {
     let btn = x.currentTarget;
     let section = btn.parentElement;
     let p = section.querySelector('p');
-    if(p.style.display ==  'block'){
+    if (p.style.display == 'block') {
         p.style.display = 'none';
         btn.textContent = 'More';
-    }else{
+    } else {
         p.style.display = 'block';
         btn.textContent = 'Less';
 
     }
-    
+
 }
 
 
@@ -48,16 +50,20 @@ export const setupTemplateforCarAndLicence = (data) => {
         const guide = element.data();
         const li = `
         <li class="stepsRows">
-            <div></div>
+            <div class="tickBox"></div>
+
             <h3>${guide.title}</h3>
-            <p>${guide.description}</p>
+            <div class="descripeAndLine">
+
+            <div class="line"></div><p>${guide.description}</p>
+            </div>
             <button class="button stepsRowBtn">Read More</button>
         </li>
         `;
         htmll += li;
     });
-   
-    
+
+
 }
 
 const carMenuTemplate = () => html `
@@ -71,12 +77,16 @@ const carMenuTemplate = () => html `
         </nav>
         
         <section id="info">
-            <i class="gg-arrow-left backArrow"></i>
-            
-            <h5>Get a tax card and a bank account</h5>
-            <div id="progress-bar"></div>
-            <div id="arrow"></div>
-            <div id="number">75%</div>
+            <div class="header">
+                <i class="gg-arrow-left backArrow"></i>
+
+                <h5>Get a tax card and a bank account</h5>
+                <div id="progress-bar"><div class="full"></div><div class="empty"></div></div>
+                <div class="arrowNumber">
+                        <div id="arrow"></div>
+                        <p id="number" class="numberForCitizen">0%</p>
+                </div>
+            </div>
             <ul class="sectionWithSteps">
                 
             </ul>

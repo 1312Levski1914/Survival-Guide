@@ -3,7 +3,7 @@
 import {
     html
 } from "../lib.js";
-import { styleAllOptions } from "../until.js";
+import { progresBar, styleAllOptions, ticksFunction } from "../until.js";
 
 
 export function housingMenuView(ctx) {
@@ -18,9 +18,9 @@ export function housingMenuView(ctx) {
     const backArrow = document.getElementById('info').querySelector('i').addEventListener('click',() => {
         ctx.page.redirect('/mainView')
     })
-    styleAllOptions('stepsRows','bank')
-    
-
+    styleAllOptions('stepsRows','housing')
+    progresBar('Housing')
+    ticksFunction();
 }
 
 function showMore(x){
@@ -49,9 +49,13 @@ export const setupTemplateforHousing = (data) => {
     
         const li = `
         <li class="stepsRows">
-            <div></div>
+            <div class="tickBox"></div>
+            
             <h3>${guide.title}</h3>
-            <p>${guide.description}</p>
+            <div class="descripeAndLine">
+                
+            <div class="line"></div><p>${guide.description}</p>
+            </div>
             <button class="button stepsRowBtn">Read More</button>
         </li>
         `;
@@ -72,12 +76,15 @@ const housingMenuTemplate = () => html `
         </nav>
         
         <section id="info">
-            <i class="gg-arrow-left backArrow"></i>
-            
-            <h5>Get a tax card and a bank account</h5>
-            <div id="progress-bar"></div>
-            <div id="arrow"></div>
-            <div id="number">75%</div>
+            <div class="header">
+                <i class="gg-arrow-left backArrow"></i>
+                <h5>Housing</h5>
+                <div id="progress-bar"><div class="full"></div><div class="empty"></div></div>
+                <div class="arrowNumber">
+                    <div id="arrow"></div>
+                    <p id="number" class="numberForCitizen">50%</p>
+                </div>
+            </div>
             <ul class="sectionWithSteps">
                 
             </ul>

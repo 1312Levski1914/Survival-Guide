@@ -7,7 +7,12 @@ import { notify } from "../notify.js";
 const reminderTemplate = (card1,card2,card3) => html `
 <section id="reminder">
     <h5>Let us remind you</h5>
-    <input type="checkbox">
+    <div class="item">
+      <div class="toggle-pill-bw">
+        <input type="checkbox" id="pill2" name="check">
+        <label for="pill2"></label>
+      </div>
+    </div>
     <p class="reminderInfo">Enable notifacations to help us remind you about your progress.</p>
     <ul id="listOfNotification">
         ${reminderBox(card1)}
@@ -16,9 +21,9 @@ const reminderTemplate = (card1,card2,card3) => html `
 
     </ul>
     <div id="btns">
-        <a href="/studentOrWorker" class ="button"><p>Remind me</p></a>
-        <a href="/studentOrWorker" class ="noBtn"><p>No, thanks</p></a>
-        
+        <a href="/studentOrWorker" class ="button btnReminder">Remind me</a>
+        <a href="/studentOrWorker" class ="noBtn">No, thanks</a>
+
     </div>
 </section>
 <div class="blueCircle"></div>
@@ -47,5 +52,13 @@ export function reminderView(ctx){
             }
         }
     }
+  
+    auth.onAuthStateChanged(auth, (user) =>{
+        if(user){
+            const uid= user.uid;
+            console.log(uid);
+        }else{
 
+        }
+    })
 }
