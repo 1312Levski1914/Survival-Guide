@@ -31,16 +31,6 @@ export function registerMenuView(ctx) {
     calculateProgress()
 
 
-    let ticks = document.getElementsByClassName('tickBox');
-    let arrOfTicks = Array.from(ticks)
-    let untickCount = 0;
-    arrOfTicks.forEach(x => {
-        //if (x.target.classList.contains('untickBox')) {
-
-       // }
-       
-    })
-
 
 }
 

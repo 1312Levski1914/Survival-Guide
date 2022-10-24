@@ -55,22 +55,26 @@ const taskOverall= (title, progress,path) => html`
 `
 export function mainView(ctx){
     let userData =getUserData()
-    console.log(userData);
-    ctx.render(mainTemplate(userData));
+    if(userData){
+        ctx.render(mainTemplate(userData));
 
-    let siteMap = document.getElementById('site-map');
-    let newIcon = siteMap.querySelector('.newsPeaper')
-    let profileImg = document.getElementById('navBar');
-    profileImg=  profileImg.querySelector('img');
-    profileImg.addEventListener('click',() =>{
-        ctx.page.redirect('/profileView')
-    })
-    
-    newIcon.addEventListener('click',() => {
-        ctx.page.redirect('/newsView');
-    })
-    styleAllOptions('infoRow','Main')
+        let notificationBtn = document.getElementsByClassName('notifications')[0]
+        let siteMap = document.getElementById('site-map');
+        let newIcon = siteMap.querySelector('.newsPeaper')
+        let profileImg = document.getElementById('navBar');
+        profileImg=  profileImg.querySelector('img');
+        profileImg.addEventListener('click',() =>{
+            ctx.page.redirect('/profileView')
+        })
 
-  
+        newIcon.addEventListener('click',() => {
+            ctx.page.redirect('/newsView');
+        })
+        notificationBtn.addEventListener('click', () => {
+            ctx.page.redirect('/notificationView')
+        })
+        styleAllOptions('infoRow','Main')
+
+}
 }
 

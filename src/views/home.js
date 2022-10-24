@@ -24,7 +24,7 @@ const homeTemplate = () => html `
 
 export function homeView(ctx){
     if(getUserData()){
-        ctx.page.redirect('/registerAsCitizen');
+        ctx.page.redirect('/notificationView');
     }
    
     ctx.render(homeTemplate());

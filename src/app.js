@@ -13,6 +13,7 @@ import { liveChatView } from './views/livechat.js';
 import { loginView } from "./views/login.js";
 import { mainView } from './views/main.js';
 import { newsView } from './views/news.js';
+import { notificationView } from './views/notification.js';
 
 import { profileView } from "./views/profile.js";
 import { registerView } from "./views/register.js";
@@ -45,6 +46,7 @@ page('/digitalMenuView',digitalMenuView);
 page('/carMenuView', carMenuView);
 page('/housingMenuView',housingMenuView);
 page('/jobsMenuView',jobsMenuView)
+page('/notificationView', notificationView);
 
 
 //updateNav();

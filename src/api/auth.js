@@ -34,14 +34,14 @@ import { setupTemplateforJobs } from '../views/jobsView.js';
 auth.onAuthStateChanged(user => {
     if (user) {
         db.collection('users').onSnapshot(snapshot => {
-            setupUI(user)
+            
         },err=>{
             notify(err.message)
 
         });
         db.collection('mainViewTask').onSnapshot(snapshot => {
             setupTemplateforCitizen(snapshot.docs)
-            setupUI(user);
+            
         }, err => {
             notify(err.message)
         });
@@ -84,10 +84,10 @@ auth.onAuthStateChanged(user => {
         });
 
 
-        setupUI(user)
+        
 
     } else {
-        setupUI(user)
+        
         //setupUI()
     }
 })
