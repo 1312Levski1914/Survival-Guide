@@ -22,8 +22,31 @@ export function registerMenuView(ctx) {
 
     const backArrow = document.getElementById('info').querySelector('i').addEventListener('click', () => {
         let ticks = document.getElementsByClassName('tickBox').length
-        console.log(ticks);
-        
+
+        if (ticks == 0) {
+            ticks = '0';
+        } else if (ticks == 1) {
+            ticks = '15';
+        } else if (ticks == 2) {
+            ticks = '30';
+        } else if (ticks == 3) {
+            ticks = '47';
+        } else if (ticks == 4) {
+            ticks = '65';
+        } else if (ticks == 5) {
+            ticks = '83';
+        } else if (ticks == 6) {
+            ticks = '100';
+        }
+        db.collection('users')
+            .doc(auth.currentUser.uid)
+            .update({
+                "citizenProgress": ticks,
+            })
+            .then(() => {
+                console.log('Data');
+            })
+
         ctx.page.redirect('/mainView')
     })
     styleAllOptions('stepsRows', 'info')

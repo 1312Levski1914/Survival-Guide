@@ -16,6 +16,30 @@ export function jobsMenuView(ctx) {
     .forEach(x => x.addEventListener('click',showMore))
 
     const backArrow = document.getElementById('info').querySelector('i').addEventListener('click',() => {
+        let ticks = document.getElementsByClassName('tickBox').length
+        
+        if(ticks == 0){
+            ticks = '0';
+        }else if(ticks == 1){
+            ticks = '20';
+        }else if(ticks == 2){
+            ticks = '40';
+        }else if(ticks == 3){
+            ticks = '60';
+        }else if(ticks == 4){
+            ticks = '80';
+        }else if(ticks == 5){
+            ticks = '100';
+        }
+        db.collection('users')
+            .doc(auth.currentUser.uid)
+            .update({
+                "jobs": ticks,
+            })
+            .then(() => {
+                console.log('Data');
+            })
+
         ctx.page.redirect('/mainView')
     })
     styleAllOptions('stepsRows','jobs')

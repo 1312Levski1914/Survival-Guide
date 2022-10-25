@@ -62,6 +62,8 @@ export function mainView(ctx){
         let siteMap = document.getElementById('site-map');
         let newIcon = siteMap.querySelector('.newsPeaper')
         let profileImg = document.getElementById('navBar');
+        
+
         profileImg=  profileImg.querySelector('img');
         profileImg.addEventListener('click',() =>{
             ctx.page.redirect('/profileView')
@@ -74,7 +76,46 @@ export function mainView(ctx){
             ctx.page.redirect('/notificationView')
         })
         styleAllOptions('infoRow','Main')
-
+        readData('citizenProgress')
+        readData('bankMenuView')
+        readData('digitalProgress');
+        readData('carImprove')
+        readData('housing')
+        readData('jobs')
 }
 }
 
+function readData(page){
+    let ballonText = document.getElementsByClassName('balloonText');
+    db.collection("users")
+      .get()
+      .then((data) => {
+        console.log(
+          data.docs.map((item) => {
+              if(item.id == auth.currentUser.uid){
+                if(page == 'citizenProgress'){
+                  
+                    ballonText[0].textContent = item.data().citizenProgress + '%'
+                }else if(page == 'bankMenuView'){
+                    
+                    ballonText[1].textContent = item.data().bankProgress + '%'
+                }else if(page == 'digitalProgress'){
+                    
+                    ballonText[2].textContent = item.data().digitalProgress + '%'
+                }else if(page == 'carImprove'){
+                    
+                    ballonText[3].textContent = item.data().carImprove + '%'
+                }else if(page == 'housing'){
+                    
+                    ballonText[4].textContent = item.data().housing + '%'
+                }else if(page == 'jobs'){
+                    
+                    ballonText[5].textContent = item.data().jobs + '%'
+                }
+                
+              }
+            
+          })
+        );
+      });
+  };

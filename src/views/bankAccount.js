@@ -16,12 +16,33 @@ export function bankMenuView(ctx) {
     .forEach(x => x.addEventListener('click',showMore))
 
     const backArrow = document.getElementById('info').querySelector('i').addEventListener('click',() => {
+        let ticks = document.getElementsByClassName('tickBox').length
+        
+        if(ticks == 0){
+            ticks = '0';
+        }else if(ticks == 1){
+            ticks = '33';
+        }else if(ticks == 2){
+            ticks = '65';
+        }else if(ticks == 3){
+            ticks = '100';
+        }
+        db.collection('users')
+            .doc(auth.currentUser.uid)
+            .update({
+                "bankProgress": ticks,
+            })
+            .then(() => {
+                console.log('Data');
+            })
+
         ctx.page.redirect('/mainView')
     })
     styleAllOptions('stepsRows','bank')
     progresBar('Bank')
     ticksFunction('bankMenuView');
     calculateProgress('bankMenuView')
+    
     
 
 }
