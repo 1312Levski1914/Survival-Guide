@@ -2,6 +2,7 @@ import {
     html
 } from "../lib.js";
 import {
+    calculateProgress,
     progresBar,
     styleAllOptions,
     ticksFunction
@@ -22,7 +23,8 @@ export function carMenuView(ctx) {
     })
     styleAllOptions('stepsRows', 'cars')
     progresBar('Cars')
-    ticksFunction();
+    ticksFunction('carMenuView');
+    calculateProgress('carMenuView')
 }
 
 function showMore(x) {

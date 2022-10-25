@@ -27,8 +27,8 @@ export function registerMenuView(ctx) {
         ctx.page.redirect('/mainView')
     })
     styleAllOptions('stepsRows', 'info')
-    ticksFunction();
-    calculateProgress()
+    ticksFunction('registerAsCitizen');
+    calculateProgress('registerAsCitizen')
 
 
 

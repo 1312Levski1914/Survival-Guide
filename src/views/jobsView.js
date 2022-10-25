@@ -3,7 +3,7 @@
 import {
     html
 } from "../lib.js";
-import { progresBar, styleAllOptions, ticksFunction } from "../until.js";
+import { calculateProgress, progresBar, styleAllOptions, ticksFunction } from "../until.js";
 
 
 export function jobsMenuView(ctx) {
@@ -20,7 +20,8 @@ export function jobsMenuView(ctx) {
     })
     styleAllOptions('stepsRows','jobs')
     progresBar('Jobs')
-    ticksFunction();
+    ticksFunction('jobsMenuView');
+    calculateProgress('jobsMenuView')
 
 }
 

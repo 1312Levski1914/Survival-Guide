@@ -24,7 +24,7 @@ const homeTemplate = () => html `
 
 export function homeView(ctx){
     if(getUserData()){
-        ctx.page.redirect('/notificationView');
+        ctx.page.redirect('/bankMenuView');
     }
    
     ctx.render(homeTemplate());

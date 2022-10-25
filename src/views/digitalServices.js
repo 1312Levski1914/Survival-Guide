@@ -2,7 +2,7 @@
 import {
     html
 } from "../lib.js";
-import { progresBar, styleAllOptions, ticksFunction } from "../until.js";
+import { calculateProgress, progresBar, styleAllOptions, ticksFunction } from "../until.js";
 
 
 export function digitalMenuView(ctx) {
@@ -19,7 +19,8 @@ export function digitalMenuView(ctx) {
     })
     styleAllOptions('stepsRows','digital')
     progresBar('Digital')
-    ticksFunction();
+    ticksFunction('digitalMenuView');
+    calculateProgress('digitalMenuView')
 
 }
 

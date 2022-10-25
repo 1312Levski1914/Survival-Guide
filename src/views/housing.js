@@ -3,7 +3,7 @@
 import {
     html
 } from "../lib.js";
-import { progresBar, styleAllOptions, ticksFunction } from "../until.js";
+import { calculateProgress, progresBar, styleAllOptions, ticksFunction } from "../until.js";
 
 
 export function housingMenuView(ctx) {
@@ -20,7 +20,8 @@ export function housingMenuView(ctx) {
     })
     styleAllOptions('stepsRows','housing')
     progresBar('Housing')
-    ticksFunction();
+    ticksFunction('housingMenuView');
+    calculateProgress('housingMenuView')
 }
 
 function showMore(x){
