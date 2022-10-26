@@ -1,0 +1,37 @@
+.backArrowForChat{
+    left: -70px;
+    top: 0;
+}
+#names{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+}
+#brownCircle{
+    width: 173px;
+    height:173px;
+    border-radius: 50%;
+    background-color: var(--notifyBrownCircle);
+    position: absolute;
+    right: -25%;
+    top: 12%;
+    z-index: -1;
+    opacity: 0.7;
+
+}
+#blueCircle{
+    width: 173px;
+    height: 173px;
+    border-radius: 50%;
+    background-color: var(--firstcollor);
+    position: absolute;
+    left: -20%;
+    top: 50%;
+    z-index: -1;
+    opacity: 0.7;
+}

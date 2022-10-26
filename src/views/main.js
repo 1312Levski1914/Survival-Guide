@@ -62,10 +62,15 @@ export function mainView(ctx){
         let siteMap = document.getElementById('site-map');
         let newIcon = siteMap.querySelector('.newsPeaper')
         let profileImg = document.getElementById('navBar');
+        let chatIcon = document.getElementsByClassName('chat')[0];
+        chatIcon.addEventListener('click', () => {
+            ctx.page.redirect('/chatView')
+        })
         
 
         profileImg=  profileImg.querySelector('img');
         profileImg.addEventListener('click',() =>{
+            console.log('here');
             ctx.page.redirect('/profileView')
         })
 

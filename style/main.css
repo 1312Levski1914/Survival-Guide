@@ -213,3 +213,6 @@ lastSection{
 .optionMain5{
     margin-left: -50px;
 }
+.chat{
+    z-index: 20;
+}

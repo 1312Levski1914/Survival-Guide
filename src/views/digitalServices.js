@@ -32,7 +32,7 @@ export function digitalMenuView(ctx) {
                 "digitalProgress": ticks,
             })
             .then(() => {
-                console.log('Data');
+                
             })
         ctx.page.redirect('/mainView')
     })

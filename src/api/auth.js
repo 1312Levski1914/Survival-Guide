@@ -126,7 +126,6 @@ export function login(email, password) {
             }
             setUserData(userData);
             updateInfo(userData)
-            console.log(userData);
 
         })
     })

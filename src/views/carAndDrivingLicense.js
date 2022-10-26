@@ -25,7 +25,7 @@ export function carMenuView(ctx) {
             ticks = '0';
         }else if(ticks == 1){
             ticks = '55';
-        }else if(ticks == 3){
+        }else if(ticks == 2){
             ticks = '100';
         }
         db.collection('users')
@@ -34,7 +34,7 @@ export function carMenuView(ctx) {
                 "carImprove": ticks,
             })
             .then(() => {
-                console.log('Data');
+                
             })
         
         ctx.page.redirect('/mainView')

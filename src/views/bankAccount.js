@@ -33,7 +33,7 @@ export function bankMenuView(ctx) {
                 "bankProgress": ticks,
             })
             .then(() => {
-                console.log('Data');
+                
             })
 
         ctx.page.redirect('/mainView')

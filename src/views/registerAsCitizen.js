@@ -44,7 +44,7 @@ export function registerMenuView(ctx) {
                 "citizenProgress": ticks,
             })
             .then(() => {
-                console.log('Data');
+                
             })
 
         ctx.page.redirect('/mainView')

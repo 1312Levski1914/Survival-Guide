@@ -3,6 +3,7 @@ import { page, render} from './lib.js';
 import { getUserData } from "./until.js";
 import { bankMenuView } from './views/bankAccount.js';
 import { carMenuView } from './views/carAndDrivingLicense.js';
+import { chatView } from './views/chatView.js';
 import { digitalMenuView } from './views/digitalServices.js';
 import { EuOrNonEuStudentView } from "./views/EuOrNonEu.js";
 import { euOrNonEuWorkerView } from "./views/euOrNonEuWorker.js";
@@ -47,6 +48,7 @@ page('/carMenuView', carMenuView);
 page('/housingMenuView',housingMenuView);
 page('/jobsMenuView',jobsMenuView)
 page('/notificationView', notificationView);
+page('/chatView', chatView);
 
 
 //updateNav();
