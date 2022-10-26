@@ -21,12 +21,12 @@ const mainTemplate = (userData) => html `
         <div class="smallImg"></div>
         <section>
             <div class="wheel">
-               <section >${taskOverall('Register as a citizen','100%','registerAsCitizen')}</section>
-               <section >${taskOverall('Bank account Tax Card','75%','bankMenuView')}</section>
+               <section >${taskOverall('Register as a citizen','0%','registerAsCitizen')}</section>
+               <section >${taskOverall('Bank account Tax Card','0%','bankMenuView')}</section>
                <section >${taskOverall('Digital Services','0%','digitalMenuView')}</section>
                <section> ${taskOverall('Improve your car','0%','carMenuView')}</section>
-               <section >  ${taskOverall('Housing','50%','housingMenuView')}</section>
-               <section  >${taskOverall('Jobs | Unions','50%','jobsMenuView')}</section>
+               <section >  ${taskOverall('Housing','0%','housingMenuView')}</section>
+               <section  >${taskOverall('Jobs | Unions','0%','jobsMenuView')}</section>
                </div>
         </section>
         <div class="chat"></div>
@@ -90,32 +90,40 @@ function readData(page){
     db.collection("users")
       .get()
       .then((data) => {
-        console.log(
           data.docs.map((item) => {
-              if(item.id == auth.currentUser.uid){
+              if(item.id == auth.currentUser.uid && item.data().citizenProgress !== undefined){
                 if(page == 'citizenProgress'){
                   
                     ballonText[0].textContent = item.data().citizenProgress + '%'
                 }else if(page == 'bankMenuView'){
-                    
-                    ballonText[1].textContent = item.data().bankProgress + '%'
+                    if(item.data().bankProgress !== undefined){
+
+                        ballonText[1].textContent = item.data().bankProgress + '%'
+                    }
                 }else if(page == 'digitalProgress'){
-                    
-                    ballonText[2].textContent = item.data().digitalProgress + '%'
+                    if(item.data().digitalProgress !== undefined){
+
+                        ballonText[2].textContent = item.data().digitalProgress + '%'
+                    }
                 }else if(page == 'carImprove'){
-                    
-                    ballonText[3].textContent = item.data().carImprove + '%'
+                    if(item.data().carImprove !== undefined){
+
+                        ballonText[3].textContent = item.data().carImprove + '%'
+                    }
                 }else if(page == 'housing'){
-                    
-                    ballonText[4].textContent = item.data().housing + '%'
+                    if(item.data().housing !== undefined){
+
+                        ballonText[4].textContent = item.data().housing + '%'
+                    }
                 }else if(page == 'jobs'){
-                    
-                    ballonText[5].textContent = item.data().jobs + '%'
+                    if(item.data().jobs !== undefined){
+
+                        ballonText[5].textContent = item.data().jobs + '%'
+                    }
                 }
                 
               }
             
           })
-        );
       });
   };
