@@ -1,5 +1,5 @@
 #news{
-    background-color:#f7f7f7 ;
+    background-color:#fff;
 }
 #header{
     display: flex;
@@ -93,18 +93,18 @@
  }
  .paragraphs1 p{
     font-family: var(--paragparhsInNews);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
  }
 
  .paragraphs2 p{
     font-family: var(--paragparhsInNews);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
  }
  .paragraphs3 p{
     font-family: var(--paragparhsInNews);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
  }
 #footer{
@@ -125,6 +125,15 @@
     left: 43%;
     top: 55px;
 }
+#footer section{
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+    border-radius: 50%;
+    position: absolute;
+    right: 10%;
+    bottom: 15%;
+}
 .dots1 div{
     background-color: var(--secBtnCollor);
 }
@@ -136,4 +145,10 @@
 }
 .active{
     background-color: green;
+}
+.notifyIconBtn {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 5%;
 }

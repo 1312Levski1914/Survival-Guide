@@ -155,7 +155,12 @@
 }
 .btnReminder{
     text-align: center;
-    
+    display: grid;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 28px;
+    padding: 10px;
 }
 .noBtn {
     text-decoration: none;

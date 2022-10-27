@@ -60,6 +60,8 @@ const newsTemplate = (climate,meetDanes,cultureShock) => html `
     </section>
     <section id="footer">
         <div></div>
+        <section></section>
+
     </section>
     </section>
 `
@@ -71,6 +73,11 @@ export function newsView(ctx){
     let homeBtn = footer.querySelector('div');
     homeBtn.addEventListener('click', () => {
         ctx.page.redirect('/mainView');
+    })
+
+    let icon = footer.querySelector('section');
+    icon.addEventListener('click', () => {
+        ctx.page.redirect('/notificationView')
     })
     interactiveInfo('paragraphs1','dots1','#2C3C3A','#fff');
     interactiveInfo('paragraphs2','dots2','#2C3C3A','#fff');
@@ -87,7 +94,6 @@ function interactiveInfo(paragraphName,dotsName,col1,col2,stoper){
     let thirthParagraph = meetDaness.lastElementChild;
     thirthParagraph.style.display = 'none';
     let meetDanesDot = dots[0];
-    console.log(meetDanesDot);
     meetDanesDot.firstElementChild.firstElementChild.style.backgroundColor = col1;
     if(stoper){
         meetDanesDot.lastElementChild.style.display= 'none';

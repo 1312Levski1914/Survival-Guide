@@ -20,6 +20,7 @@ margin: 10px;
 nav section h3{
    font-family:'ethnocentric';
    font-weight: 200;
+   margin: 0;
 }
 
 #registerAsCitizen section{
@@ -148,6 +149,9 @@ width: 100%;
     height: max-content;
     align-content: stretch;
     flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+
      
  }
  .line{

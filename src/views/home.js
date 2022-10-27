@@ -8,11 +8,7 @@ const homeTemplate = () => html `
     <h1>Welcome to Survival Guide</h1>
     <div id="logo"></div>
     <p>Your virtual journal to help you manage everyday life as an international in Denmark</p>
-    <section class="dots">
-        <div><div></div></div>
-        <div><div></div></div>
-        <div><div></div></div>
-    </section>
+    
     <div id="btn-div" >
         <a href="/register" class ="button btnReg"><p>Les's get you started!</p></a>
         <a href = "/login" class="button btnLogin"><p>Already have an account? Log In!</p></a>

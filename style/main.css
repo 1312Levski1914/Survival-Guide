@@ -216,3 +216,6 @@ lastSection{
 .chat{
     z-index: 20;
 }
+.tickBox{
+    padding-top: 26px;
+}

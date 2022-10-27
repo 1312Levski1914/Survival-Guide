@@ -104,7 +104,7 @@ const carMenuTemplate = () => html `
                 <div id="progress-bar"><div class="full"></div><div class="empty"></div></div>
                 <div class="arrowNumber">
                         <div id="arrow"></div>
-                        <p id="number" class="numberForCitizen">0%</p>
+                        <p id="number" class="numberForCitizen">%</p>
                 </div>
             </div>
             <ul class="sectionWithSteps">
