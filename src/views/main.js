@@ -70,7 +70,7 @@ export function mainView(ctx){
 
         profileImg=  profileImg.querySelector('img');
         profileImg.addEventListener('click',() =>{
-            console.log('here');
+            
             ctx.page.redirect('/profileView')
         })
 

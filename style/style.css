@@ -80,8 +80,6 @@ p{
 #register{
     display: flex;
     flex-direction: column;
-    width: fit-content;
-    height: fit-content;
     text-align: center;
     background-color: silver;
     padding: 30px;

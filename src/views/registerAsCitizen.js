@@ -61,6 +61,8 @@ export function registerMenuView(ctx) {
 function showMore(x) {
     let btn = x.currentTarget;
     let section = btn.parentElement.parentElement;
+    
+
     let p = section.querySelector('p');
     if (p.style.display == 'block') {
         p.style.display = 'none';
@@ -89,8 +91,8 @@ export const setupTemplateforCitizen = (data) => {
             
             <h3>${guide.title}</h3>
             <div class="descripeAndLine">
-                
-            <div class="line"></div><p>${guide.description}</p>
+                <div class="line"></div>
+                <p>${guide.description}</p>
             </div>
             <button class="button stepsRowBtn">Read More</button>
         </li>

@@ -149,14 +149,15 @@ width: 100%;
     height: max-content;
     align-content: stretch;
     flex-wrap: wrap;
-    text-align: center;
     align-items: center;
 
      
  }
+ .stepsRows h3{
+   margin-left: 15px;
+ }
  .line{
    width: 3px;
-   height: 100%;
    position:relative;
    background-color: var(--firstcollor);
    margin-left:12px;
@@ -165,6 +166,7 @@ width: 100%;
  .descripeAndLine{
    display: flex;
    flex-direction: row;
+   height: 100%;
    
 
  }
@@ -197,7 +199,7 @@ width: 100%;
    order:1;
  }
  .stepsRows h3{
-    width: 90%;
+    width: 80%;
  }
 .tickBox{
     background-image: url(../images/blueicon-done.png);
