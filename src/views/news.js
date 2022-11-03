@@ -16,11 +16,11 @@ export const setupTemplateforNews = (picnumber, h1,p,p1,p2) => html `
             <p>${p1}</p>
             <p>${p2}</p>
         </div>
-        <div class="dots dots${picnumber}">
-            <div><div></div></div>
-            <div><div></div></div>
-            <div><div></div></div>
-        </div>
+            <div class="dots dots${picnumber}">
+                <div><div></div></div>
+                <div><div></div></div>
+                <div><div></div></div>
+            </div>
     </section>
 `
 let climate = '';
