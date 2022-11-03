@@ -1,6 +1,4 @@
-import {
-    page
-} from '../lib.js'
+
 import {
     setupTemplateforCitizen
 } from "../views/registerAsCitizen.js";

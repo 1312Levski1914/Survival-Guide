@@ -2,7 +2,7 @@ import {
     html
 } from "../lib.js";
 import { EuOrNonEuStudentView } from "./EuOrNonEu.js";
-import { page } from "../lib.js";
+
 import { getUserData, setUserData } from "../until.js";
 
 
